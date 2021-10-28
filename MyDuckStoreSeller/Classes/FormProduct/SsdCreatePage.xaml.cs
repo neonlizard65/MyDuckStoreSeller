@@ -53,20 +53,25 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
         private void SendBtn_Click(object sender, RoutedEventArgs e)
         {
-            KeyValuePair<Instance, Product> newproduct = new KeyValuePair<Instance, Product>(curproduct.Key, new Ssd(null, null, (allmanufacturers.manufacturer.First(p => p.ManufacturerName == ManufacturerBox.SelectedItem)).ManufacturerID, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null));
-            
-            if ()
+            if (ManufacturerBox.SelectedItem != null)
             {
-                //create
-                var result = MessageBox.Show("Изменение названия или кода производителя создаст новый вид товара.", "Внимание", MessageBoxButton.OKCancel, MessageBoxImage.Information);
-                if (result == MessageBoxResult.OK)
-                {
+                KeyValuePair<Instance, Product> newproduct = new KeyValuePair<Instance, Product>(new SsdInstance(null, null, SerialBox.Text, MainWindow.seller.SellerID, null, "0"), new Ssd(null, null, (allmanufacturers.manufacturer.First(p => p.ManufacturerName == ManufacturerBox.SelectedItem.ToString())).ManufacturerID, null, null, null,
+                    NameBox.Text, ProductImage.Source.ToString(), ManufacturerCodeBox.Text, UsageTypeBox.Text, FormFactorBox.Text, InterfaceBox.Text, VolumeGBBox.Text,
+                    ReadSpeedBox.Text, WriteSpeedBox.Text, UsageHoursBox.Text, GuaranteeBox.Text, null, PriceBox.Text));
 
+                if (allproducts.First(p => p.Name == newproduct.Value.Name).ManufacturerName != null || allproducts.First(p => p.ManufacturerCode == newproduct.Value.ManufacturerCode).ManufacturerCode != null)
+                {
+                    //create
+                    var result = MessageBox.Show("Изменение названия или кода производителя создаст новый вид товара.", "Внимание", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.OK)
+                    {
+
+                    }
                 }
-            }
-            else
-            {
-               //update
+                else
+                {
+                   //update
+                }
             }
         }
 

@@ -26,7 +26,7 @@ namespace MyDuckStoreSeller
     /// </summary>
     public partial class MainWindow : Window
     {
-        Seller seller;
+        public static Seller seller;
         List<Product> allproducts = new List<Product>();
         List<Instance> allinstances = new List<Instance>();
         Dictionary<Instance, Product> sellerproducts = new Dictionary<Instance, Product>();

@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Comment.cs" />
     <Compile Include="Classes\FormProduct\AddEditWindow.xaml.cs">
       <DependentUpon>AddEditWindow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +110,7 @@
     <Compile Include="Classes\Instances\VideocardInstance.cs" />
     <Compile Include="Classes\Instances\Watercooler.cs" />
     <Compile Include="Classes\Manufacturer.cs" />
+    <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\Products\Aircooler.cs" />
     <Compile Include="Classes\Products\Cpu.cs" />
     <Compile Include="Classes\Products\Hdd.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="Classes\Products\Watercooler.cs" />
     <Compile Include="Classes\Seller.cs" />
     <Compile Include="Classes\Products\Ssd.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="LoginForm\LoginFrameManager.cs" />
     <Compile Include="LoginForm\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
