@@ -26,8 +26,8 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Watercooler(string WatercoolerID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
     string ImagePath, string ManufacturerCode, string Socket, string RadiatorMaterial, string FanQty,
-    string Dimensions, string Speed, string VolumedB, string CFM, string WaterblockMaterial, string Weight, string GuaranteeMon, string Quantity, string Price)
-    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+    string Dimensions, string Speed, string VolumedB, string CFM, string WaterblockMaterial, string Weight, string GuaranteeMon)
+    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.WatercoolerID = WatercoolerID;
             this.Socket = Socket;

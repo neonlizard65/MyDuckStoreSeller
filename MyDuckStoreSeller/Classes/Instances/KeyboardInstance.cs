@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string KeyboardInstanceID { get; set; }
         public string KeyboardId { get; set; }
 
-        public KeyboardInstance(string KeyboardInstanceID, string KeyboardId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public KeyboardInstance(string KeyboardInstanceID, string KeyboardId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.KeyboardInstanceID = KeyboardInstanceID;
             this.KeyboardId = KeyboardId;

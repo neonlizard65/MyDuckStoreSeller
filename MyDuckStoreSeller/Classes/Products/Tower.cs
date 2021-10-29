@@ -36,8 +36,8 @@ namespace MyDuckStoreSeller.Classes.Products
     string ImagePath, string ManufacturerCode, string Size, string FormFactor, string BPIncluded,
     string BPLocation, string TowerMaterial, string SideWindow, string WindowMaterial, string Slot2p5Qty, string Slot3p5Qty, string ExpansionSlots, string HDDPlacement,
     string MaxVideocardLength, string MaxCoolerHeight, string InterfacesFront, string Fans, string Dimensions, string Weight, 
-    string GuaranteeMon, string Quantity, string Price)
-    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+    string GuaranteeMon)
+    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.TowerID = TowerID;
             this.Size = Size;

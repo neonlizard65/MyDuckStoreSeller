@@ -25,8 +25,8 @@ namespace MyDuckStoreSeller.Classes
 
         public Ssd(string SsdID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
             string ImagePath, string ManufacturerCode, string UsageType, string FormFactor, string Interface, 
-            string VolumeGB, string ReadSpeed, string WriteSpeed, string UsageHours, string GuaranteeMon, string Quantity, string Price)
-            : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+            string VolumeGB, string ReadSpeed, string WriteSpeed, string UsageHours, string GuaranteeMon)
+            : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.SsdID = SsdID;
             this.UsageType = UsageType;

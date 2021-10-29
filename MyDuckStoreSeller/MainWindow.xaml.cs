@@ -446,15 +446,20 @@ namespace MyDuckStoreSeller
             var element = (KeyValuePair<Instance, Product>)(sender as ListView).SelectedValue;
             if (element.Value is Ssd)
             {
-                AddEditWindow addeditForm = new AddEditWindow(element, ref allproducts);
+                AddEditWindow addeditForm = new AddEditWindow(sender, element, ref allproducts);
                 addeditForm.Show();
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddEditWindow addeditForm = new AddEditWindow(new KeyValuePair<Instance, Product>(), ref allproducts);
+            AddEditWindow addeditForm = new AddEditWindow(sender, new KeyValuePair<Instance, Product>(), ref allproducts);
             addeditForm.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

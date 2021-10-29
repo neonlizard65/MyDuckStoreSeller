@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string HeadphonesInstanceID { get; set; }
         public string HeadphonesId { get; set; }
 
-        public HeadphonesInstance(string HeadphonesInstanceID, string HeadphonesId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public HeadphonesInstance(string HeadphonesInstanceID, string HeadphonesId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.HeadphonesInstanceID = HeadphonesInstanceID;
             this.HeadphonesId = HeadphonesId;

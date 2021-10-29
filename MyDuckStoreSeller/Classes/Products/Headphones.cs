@@ -23,8 +23,8 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Headphones(string HeadphonesID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
        string ImagePath, string ManufacturerCode, string ConnectionType, string FrequencyRange, string SensitivitydB,
-       string Jack, string MicrophoneSensitivity, string Weight, string GuaranteeMon, string Quantity, string Price)
-       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+       string Jack, string MicrophoneSensitivity, string Weight, string GuaranteeMon)
+       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.HeadphonesID = HeadphonesID;
             this.ConnectionType = ConnectionType;

@@ -52,7 +52,7 @@
                                     <Image Source="{Binding Value.ImagePath}" Width="200" Height="100"/>
                                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                         <TextBlock Text="{Binding Value.Name}"></TextBlock>
-                                        <TextBlock Text="{Binding Value.Price, StringFormat={}{0} руб.}"></TextBlock>
+                                        <TextBlock Text="{Binding Key.Price, StringFormat={}{0} руб.}"></TextBlock>
                                         <TextBlock Text="{Binding Path=Key.SerialNumber}"/>
                                     </StackPanel>
                                     <TextBlock Text="{Binding Path=Key.SoldText}" VerticalAlignment="Center"/>
@@ -60,8 +60,10 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    
-                    <Button Content="Добавить" Grid.Row="2" Width="200" Margin="0, 2, 0, 0" Click="Button_Click"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                        <Button Name="CreateInstance" Content="Добавить свой товар" Width="200" Height="50" Click="Button_Click_1"  Margin="0, 0, 35, 0"/>
+                        <Button Name="CreateProduct" Content="Добавить вид товара" Width="200" Height="50" Click="Button_Click" Grid.RowSpan="2"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem>

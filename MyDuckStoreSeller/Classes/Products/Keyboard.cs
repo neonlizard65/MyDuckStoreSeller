@@ -22,8 +22,8 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Keyboard(string KeyboardID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
 string ImagePath, string ManufacturerCode, string ConnectType, string Construction, string Type,
-string Numpad, string Weight, string GuaranteeMon, string Quantity, string Price)
-: base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+string Numpad, string Weight, string GuaranteeMon)
+: base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.KeyboardID = KeyboardID;
             this.ConnectType = ConnectType;

@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string MotherboardInstanceID { get; set; }
         public string MotherboardId { get; set; }
 
-        public MotherboardInstance(string MotherboardInstanceID, string MotherboardId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public MotherboardInstance(string MotherboardInstanceID, string MotherboardId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.MotherboardInstanceID = MotherboardInstanceID;
             this.MotherboardId = MotherboardId;

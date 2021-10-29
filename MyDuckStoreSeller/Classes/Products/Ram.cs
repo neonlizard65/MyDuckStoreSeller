@@ -26,8 +26,8 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Ram(string RamID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
         string ImagePath, string ManufacturerCode, string FormFactor, string MemoryType, string MemoryVolumeGB,
-        string ClockSpeed, string SpeedMB, string CAS, string RAStoCAS, string RowPrecharge, string GuaranteeMon, string Quantity, string Price)
-        : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+        string ClockSpeed, string SpeedMB, string CAS, string RAStoCAS, string RowPrecharge, string GuaranteeMon)
+        : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.RamID = RamID;
             this.FormFactor = FormFactor;

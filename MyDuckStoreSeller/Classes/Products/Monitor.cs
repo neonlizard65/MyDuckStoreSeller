@@ -44,8 +44,8 @@ namespace MyDuckStoreSeller.Classes.Products
 string ImagePath, string ManufacturerCode, string Diagonal, string Matrix, string LED,
 string WideFormat, string UltrawideFormat, string Resolution, string Brightness, string Contrast, string MsDelay, string HorizontalFOV, string VerticalFOV,
 string MaxColorQty, string Hertz, string HeightRegulation, string WallMount, string Rotate90, string Interface, string USBHub, string PowerSupply, string VoltageWorking,
-string VoltageIdle, string Color, string Dimensions, string Weight, string GuaranteeMon, string Quantity, string Price)
-: base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+string VoltageIdle, string Color, string Dimensions, string Weight, string GuaranteeMon)
+: base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.MonitorID = MonitorID;
             this.Diagonal = Diagonal;

@@ -93,6 +93,9 @@
     <Compile Include="Classes\FormProduct\SsdCreatePage.xaml.cs">
       <DependentUpon>SsdCreatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormProduct\SsdInstanceCreatePage.xaml.cs">
+      <DependentUpon>SsdInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Instances\AircoolerInstance.cs" />
     <Compile Include="Classes\Instances\Cpuinstance.cs" />
     <Compile Include="Classes\Instances\HddInstance.cs" />
@@ -108,7 +111,7 @@
     <Compile Include="Classes\Instances\TowerInstance.cs" />
     <Compile Include="Classes\Instances\UsbFlashInstance.cs" />
     <Compile Include="Classes\Instances\VideocardInstance.cs" />
-    <Compile Include="Classes\Instances\Watercooler.cs" />
+    <Compile Include="Classes\Instances\WatercoolerInstance.cs" />
     <Compile Include="Classes\Manufacturer.cs" />
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\Products\Aircooler.cs" />
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Classes\FormProduct\SsdCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Classes\FormProduct\SsdInstanceCreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

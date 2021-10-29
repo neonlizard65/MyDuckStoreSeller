@@ -32,8 +32,8 @@ namespace MyDuckStoreSeller.Classes
 
         public Cpu(string CpuID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
        string ImagePath, string ManufacturerCode, string Series, string Model, string Socket,
-       string CoreType, string ThreadCount, string ClockRate, string CacheL1KB, string CacheL2KB, string CacheL3KB, string IntegratedGraphicsCore, string Videoprocessor, string Nanometers, string MaxWorkTempCels, string Watt, string SupplyType, string GuaranteeMon, string Quantity, string Price)
-       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+       string CoreType, string ThreadCount, string ClockRate, string CacheL1KB, string CacheL2KB, string CacheL3KB, string IntegratedGraphicsCore, string Videoprocessor, string Nanometers, string MaxWorkTempCels, string Watt, string SupplyType, string GuaranteeMon)
+       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.CpuID = CpuID;
             this.Series = Series;

@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string AircoolerInstanceID { get; set; }
         public string AircoolerId { get; set; }
 
-        public AircoolerInstance(string AircoolerInstanceID, string AircoolerId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public AircoolerInstance(string AircoolerInstanceID, string AircoolerId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.AircoolerInstanceID = AircoolerInstanceID;
             this.AircoolerId = AircoolerId;

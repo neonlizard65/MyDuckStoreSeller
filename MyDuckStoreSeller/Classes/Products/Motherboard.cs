@@ -30,8 +30,8 @@ namespace MyDuckStoreSeller.Classes.Products
         public Motherboard(string MotherboardID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
        string ImagePath, string ManufacturerCode, string Socket, string Chipset, string RamSlots,
        string SataControllers, string RaidSupport, string ExpansionSlots, string IntegratedVideo, string Sound, string AudioController, string NetInterface,
-       string NetController, string Interfaces, string FormFactor, string GuaranteeMon, string Quantity, string Price)
-       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+       string NetController, string Interfaces, string FormFactor, string GuaranteeMon)
+       : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.MotherboardID = MotherboardID;
             this.Socket = Socket;

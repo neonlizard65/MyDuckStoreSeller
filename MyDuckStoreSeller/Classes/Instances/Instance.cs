@@ -13,13 +13,15 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string Sold { get; set; }
         public string SerialNumber { get; set; }
         public string SoldText { get; set; }
+        public string Price { get; set; }
 
-        public Instance(string SellerId, string InstanceId, string Sold, string SerialNumber)
+        public Instance(string SellerId, string InstanceId, string Sold, string SerialNumber, string Price)
         {
             this.SellerId = SellerId;
             this.InstanceId = InstanceId;
             this.Sold = Sold;
             this.SerialNumber = SerialNumber;
+            this.Price = Price;
             if (Sold != null)
             {
                 if (Convert.ToBoolean(Convert.ToInt32(Sold)))

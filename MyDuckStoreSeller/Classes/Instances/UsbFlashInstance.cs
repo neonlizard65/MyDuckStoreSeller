@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string UsbFlashInstanceID { get; set; }
         public string UsbFlashId { get; set; }
 
-        public UsbFlashInstance(string UsbFlashInstanceID, string UsbFlashId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public UsbFlashInstance(string UsbFlashInstanceID, string UsbFlashId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.UsbFlashInstanceID = UsbFlashInstanceID;
             this.UsbFlashId = UsbFlashId;

@@ -32,8 +32,8 @@ namespace MyDuckStoreSeller.Classes.Products
         public Psu(string PsuID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
     string ImagePath, string ManufacturerCode, string Power, string Standart, string PFC,
     string FanSize, string MotherboardPins, string CpuPinQuantity, string PCIEPinQuantity, string IDEPinQuantity, string SataPinQuantity, 
-    string OverpressureProtection, string OverflowProtection, string ShortCircuitProtection, string Certificate80Plus, string Weight, string GuaranteeMon, string Quantity, string Price)
-    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+    string OverpressureProtection, string OverflowProtection, string ShortCircuitProtection, string Certificate80Plus, string Weight, string GuaranteeMon)
+    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.PsuID = PsuID;
             this.Power = Power;

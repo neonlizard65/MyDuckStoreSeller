@@ -27,19 +27,21 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         ManufacturerList allmanufacturers;
 
         KeyValuePair<Instance, Product> currentproduct;
-        List<Product> allproductss;
+        List<Product> allproducts;
         List<Product> allssd;
+        object senderbutton;
 
-        public AddEditWindow(KeyValuePair<Instance, Product> product, ref List<Product> allproducts)
+        public AddEditWindow(object sender, KeyValuePair<Instance, Product> product, ref List<Product> allproducts)
         {
             InitializeComponent();
 
             //Для глоб. переменных
             currentproduct = product;
-            allproductss = allproducts;
+            this.allproducts = allproducts;
+            senderbutton = sender;
 
             //Все SSD
-            allssd = (from x in allproductss
+            allssd = (from x in this.allproducts
                       where x is Ssd
                       select x).ToList();
 
@@ -56,7 +58,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 if (product.Value is Ssd)
                 {
                     CategoriesComboBox.SelectedItem = "Накопитель SSD";
-                    SsdCreatePage ssdpage = new SsdCreatePage(product, allssd, allmanufacturers);
+                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(product, allssd, allmanufacturers);
                     ProductFrame.Navigate(ssdpage);
                 }
             }
@@ -65,10 +67,18 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
         private void CategoriesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(CategoriesComboBox.SelectedValue == "Накопитель SSD")
+            if(CategoriesComboBox.SelectedValue.ToString() == "Накопитель SSD")
             {
-                SsdCreatePage ssdpage = new SsdCreatePage(currentproduct, allssd, allmanufacturers);
-                ProductFrame.Navigate(ssdpage);
+                if ((sender as Button).Name == "CreateInstance")
+                {
+                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(currentproduct, allssd, allmanufacturers);
+                    ProductFrame.Navigate(ssdpage);
+                }
+                if ((sender as Button).Name == "CreateProduct")
+                {
+                    SsdCreatePage ssdpage = new SsdCreatePage();
+                    ProductFrame.Navigate(ssdpage);
+                }
             }
         }
     }

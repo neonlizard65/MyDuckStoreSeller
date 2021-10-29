@@ -24,8 +24,8 @@ namespace MyDuckStoreSeller.Classes.Products
     
         public Hdd(string HddID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
                string ImagePath, string ManufacturerCode, string UsageType, string FormFactor, string Interface,
-               string VolumeGB, string BufferMB, string Speed, string GuaranteeMon, string Quantity, string Price)
-               : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+               string VolumeGB, string BufferMB, string Speed, string GuaranteeMon)
+               : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.HddID = HddID;
             this.UsageType = UsageType;

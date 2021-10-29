@@ -17,11 +17,8 @@ namespace MyDuckStoreSeller.Classes
         public string ImagePath { get; set; }
         public string ManufacturerCode { get; set; }
         public string GuaranteeMon { get; set; }
-        public string Quantity { get; set; }
-        public string Price { get; set; }
-
         public Product(string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
-            string ImagePath, string ManufacturerCode, string GuaranteeMon, string Quantity, string Price)
+            string ImagePath, string ManufacturerCode, string GuaranteeMon)
         {
             this.ArticulId = ArticulId;
             this.ManufacturerId = ManufacturerId;
@@ -32,8 +29,6 @@ namespace MyDuckStoreSeller.Classes
             this.ImagePath = ImagePath;
             this.ManufacturerCode = ManufacturerCode;
             this.GuaranteeMon = GuaranteeMon;
-            this.Quantity = Quantity;
-            this.Price = Price;
         }
     }
 }

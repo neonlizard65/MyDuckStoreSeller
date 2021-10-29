@@ -5,73 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="SsdCreatePage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="92*"/>
-            <ColumnDefinition Width="131*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel VerticalAlignment="Center">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock  HorizontalAlignment="Center" Text="Серийный номер:" Margin="0, 0, 0, 5"></TextBlock>
-                <TextBox Name="SerialBox" Width="300" Text="{Binding Key.SerialNumber}"></TextBox>
-            </StackPanel>
-            <TextBlock Text="{Binding Value.ArticulId, StringFormat={}ID:{0}}" Margin="5, 10, 0, 0" HorizontalAlignment="Center"></TextBlock>
-            <Image Name="ProductImage" Source="{Binding Value.ImagePath}"  Grid.Column="0" HorizontalAlignment="Left" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
-            <Button Content="Импортировать фото" Height="30" Width="200" Margin="0, 10, 0, 0"/>
-        </StackPanel>
-        <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                <TextBlock Text="Название (вид):"/>
-                <ComboBox Name="NameBox" IsEditable="True" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="NameBox_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
-                <TextBlock Text="Производитель:"/>
-                <ComboBox Name="ManufacturerBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Код производителя:"/>
-                <TextBox Name="ManufacturerCodeBox" Text="{Binding Value.ManufacturerCode}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Назначение:"/>
-                <TextBox Name="UsageTypeBox" Text="{Binding Value.UsageType}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Форм-фактор:"/>
-                <TextBox Name="FormFactorBox" Text="{Binding Value.FormFactor}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Интерфейс:"/>
-                <TextBox Name="InterfaceBox" Text="{Binding Value.Interface}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Объем (ГБ):"/>
-                <TextBox Name="VolumeGBBox" Text="{Binding Value.VolumeGB}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Скорость чтения (МБ):"/>
-                <TextBox Name="ReadSpeedBox" Text="{Binding Value.ReadSpeed}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Скорость записи (МБ):"/>
-                <TextBox Name="WriteSpeedBox" Text="{Binding Value.WriteSpeed}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Время наработки на отказ:"/>
-                <TextBox Name="UsageHoursBox" Text="{Binding Value.UsageHours}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Гарантия (мес.):"/>
-                <TextBox Name="GuaranteeBox" Text="{Binding Value.GuaranteeMon}"  Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Цена:"/>
-                <TextBox Name="PriceBox" Text="{Binding Value.Price}" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <Button Name="SendBtn" Grid.Column="1" Click="SendBtn_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 30, 10, 0"/>
-        </StackPanel>
+        
     </Grid>
 </Page>

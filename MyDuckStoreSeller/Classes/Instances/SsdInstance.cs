@@ -16,7 +16,7 @@ namespace MyDuckStoreSeller.Classes.Instances
         public string SsdInstanceID { get; set; }
         public string SsdId { get; set; }
 
-        public SsdInstance(string SsdInstanceID, string SsdId, string SerialNumber, string SellerId, string InstanceId, string Sold) : base(SellerId, InstanceId, Sold, SerialNumber)
+        public SsdInstance(string SsdInstanceID, string SsdId, string SerialNumber, string SellerId, string InstanceId, string Sold, string Price) : base(SellerId, InstanceId, Sold, SerialNumber, Price)
         {
             this.SsdInstanceID = SsdInstanceID;
             this.SsdId = SsdId;

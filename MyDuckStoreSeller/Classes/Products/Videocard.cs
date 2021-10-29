@@ -35,8 +35,8 @@ namespace MyDuckStoreSeller.Classes.Products
      string ImagePath, string ManufacturerCode, string Interface,
      string ProcessorManufacturer, string Series, string Nanometers, string ClockSpeed, string CountUniversalProcessor, string SLICrossfire, 
      string DirectXSupport, string OpenGLSupport, string MemoryMB, string MemoryType, string Ports, string CountMonitorSupport, string MaxResolution, 
-     string Pins, string Watt, string Dimensions, string GuaranteeMon, string Quantity, string Price)
-     : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+     string Pins, string Watt, string Dimensions, string GuaranteeMon)
+     : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.VideocardID = VideocardID;
             this.Interface = Interface;

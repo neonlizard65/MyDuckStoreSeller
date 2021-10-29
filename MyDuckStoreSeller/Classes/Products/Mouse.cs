@@ -22,8 +22,8 @@ namespace MyDuckStoreSeller.Classes.Products
         public string ButtonQty { get; set; }
         public Mouse(string MouseID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
     string ImagePath, string ManufacturerCode, string ConnectionMedium, string ConnectionInterface, string Sensor,
-    string HandDesign, string DPI, string ButtonQty, string GuaranteeMon, string Quantity, string Price)
-    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+    string HandDesign, string DPI, string ButtonQty, string GuaranteeMon)
+    : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.MouseID = MouseID;
             this.ConnectionMedium = ConnectionMedium;

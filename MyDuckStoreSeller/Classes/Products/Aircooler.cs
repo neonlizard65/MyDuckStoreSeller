@@ -28,8 +28,8 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Aircooler(string AircoolerID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
              string ImagePath, string ManufacturerCode, string Socket, string ThermalTubes, string RadiatorMaterial,
-             string BaseMaterial, string FansQty, string Dimensions, string Speed, string VolumedB, string CFM, string Weight, string Height, string GuaranteeMon, string Quantity, string Price)
-             : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+             string BaseMaterial, string FansQty, string Dimensions, string Speed, string VolumedB, string CFM, string Weight, string Height, string GuaranteeMon)
+             : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.AircoolerID = AircoolerID;
             this.Socket = Socket;

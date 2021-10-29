@@ -19,7 +19,7 @@ namespace MyDuckStoreSeller.Classes.Products
         public string Interface { get; set; }
 
         public Usbflash(string UsbFlashID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
-            string ImagePath, string ManufacturerCode, string VolumeGB, string Interface, string GuaranteeMon, string Quantity, string Price) : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon, Quantity, Price)
+            string ImagePath, string ManufacturerCode, string VolumeGB, string Interface, string GuaranteeMon) : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.UsbFlashID = UsbFlashID;
             this.VolumeGB = VolumeGB;
