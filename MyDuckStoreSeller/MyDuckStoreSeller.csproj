@@ -96,6 +96,9 @@
     <Compile Include="Classes\FormProduct\SsdInstanceCreatePage.xaml.cs">
       <DependentUpon>SsdInstanceCreatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormProduct\SsdInstanceUpdatePage.xaml.cs">
+      <DependentUpon>SsdInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Instances\AircoolerInstance.cs" />
     <Compile Include="Classes\Instances\Cpuinstance.cs" />
     <Compile Include="Classes\Instances\HddInstance.cs" />
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Classes\FormProduct\SsdInstanceCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Classes\FormProduct\SsdInstanceUpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

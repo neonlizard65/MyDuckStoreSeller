@@ -29,21 +29,16 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         KeyValuePair<Instance, Product> currentproduct;
         List<Product> allproducts;
         List<Product> allssd;
-        object senderbutton;
+        string Method;
 
-        public AddEditWindow(object sender, KeyValuePair<Instance, Product> product, ref List<Product> allproducts)
+        public AddEditWindow(string method, KeyValuePair<Instance, Product> product, ref List<Product> allproducts)
         {
             InitializeComponent();
 
             //Для глоб. переменных
             currentproduct = product;
             this.allproducts = allproducts;
-            senderbutton = sender;
-
-            //Все SSD
-            allssd = (from x in this.allproducts
-                      where x is Ssd
-                      select x).ToList();
+            this.Method = method;
 
             //Категории
             CategoriesList.Sort();
@@ -52,14 +47,18 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             //Производители
             allmanufacturers = JsonSerializer.Deserialize<ManufacturerList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/manufacturer/read.php"));
 
-            if (product.Value != null)
+            if (Method == "UpdateInstance" || Method == "CreateInstance")
             {
-                CategoriesComboBox.IsEnabled = false;
-                if (product.Value is Ssd)
+                if(Method == "UpdateInstance")
+                    CategoriesComboBox.IsEnabled = false;
+                if (product.Value != null)
                 {
-                    CategoriesComboBox.SelectedItem = "Накопитель SSD";
-                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(product, allssd, allmanufacturers);
-                    ProductFrame.Navigate(ssdpage);
+                    if (product.Value is Ssd)
+                    {
+                        CategoriesComboBox.SelectedItem = "Накопитель SSD";
+                        SsdInstanceUpdatePage ssdpage = new SsdInstanceUpdatePage(product);
+                        ProductFrame.Navigate(ssdpage);
+                    }
                 }
             }
 
@@ -69,12 +68,12 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         {
             if(CategoriesComboBox.SelectedValue.ToString() == "Накопитель SSD")
             {
-                if ((sender as Button).Name == "CreateInstance")
+                if (Method == "CreateInstance")
                 {
-                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(currentproduct, allssd, allmanufacturers);
+                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(ref allproducts);
                     ProductFrame.Navigate(ssdpage);
                 }
-                if ((sender as Button).Name == "CreateProduct")
+                if (Method == "CreateProduct")
                 {
                     SsdCreatePage ssdpage = new SsdCreatePage();
                     ProductFrame.Navigate(ssdpage);

@@ -17,20 +17,17 @@ using System.Windows.Shapes;
 namespace MyDuckStoreSeller.Classes.FormProduct
 {
     /// <summary>
-    /// Interaction logic for SsdInstanceCreatePage.xaml
+    /// Interaction logic for SsdCreatePage.xaml
     /// </summary>
-    public partial class SsdInstanceCreatePage : Page
+    public partial class SsdInstanceUpdatePage : Page
     {
-        List<Product> allssd;
-        public SsdInstanceCreatePage(ref List<Product> products)
+
+        public SsdInstanceUpdatePage(KeyValuePair<Instance, Product> product)
         {
             InitializeComponent();
 
-            allssd = (from x in products
-                        where x is Ssd
-                        select x).ToList();
-
-            NameBox.ItemsSource = allssd.Select(p => p.Name);
+            //Для глоб. переменные
+            DataContext = product;
 
         }
 
@@ -38,18 +35,14 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         {
             try
             {
-                
+
             }
             catch
             {
 
             }
-            MessageBox.Show("Добавляем товар...");
+
         }
 
-        private void NameBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DataContext = allssd.First(p=> p.Name == NameBox.SelectedValue.ToString());
-        }
     }
 }
