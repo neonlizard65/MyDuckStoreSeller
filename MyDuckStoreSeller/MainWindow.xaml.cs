@@ -450,16 +450,6 @@ namespace MyDuckStoreSeller
         }
 
 
-private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var element = (KeyValuePair<Instance, Product>)(sender as ListView).SelectedValue;
-            if (element.Value is Ssd)
-            {
-                AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element);
-                addeditForm.ShowDialog();
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddEditWindow addeditForm = new AddEditWindow("CreateInstance", new KeyValuePair<Instance, Product>());
@@ -478,6 +468,20 @@ private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEv
         {
             AddEditWindow addeditForm = new AddEditWindow("CreateProduct", new KeyValuePair<Instance, Product>());
             addeditForm.ShowDialog();
+        }
+
+        private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListViewProducts.SelectedValue != null)
+            {
+                var element = (KeyValuePair<Instance, Product>)(sender as ListView).SelectedValue;
+                if (element.Value is Ssd)
+                {
+                    AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element);
+                    addeditForm.ShowDialog();
+                    ListViewProducts.SelectedIndex = -1;
+                }
+            }
         }
     }
 }

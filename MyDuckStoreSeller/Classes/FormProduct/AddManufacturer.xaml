@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
         mc:Ignorable="d"
-        Title="AddManufacturer" Height="450" Width="800">
+        Title="Добавить производителя" Height="450" Width="800"
+        Icon="https://www.myduckstudios.fvds.ru/content/icon/web/favicon-32x32.png">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">

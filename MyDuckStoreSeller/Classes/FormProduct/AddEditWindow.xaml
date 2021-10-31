@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
         mc:Ignorable="d"
-        Title="AddEditWindow" Height="670" Width="900">
+        Title="Товары" Height="670" Width="900"
+        Icon="https://www.myduckstudios.fvds.ru/content/icon/web/favicon-32x32.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>

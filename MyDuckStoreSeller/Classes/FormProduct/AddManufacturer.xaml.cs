@@ -102,7 +102,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             }
             else
             {
-                MessageBox.Show("Заполните все поля и импортируйте фото перед добавлением товара", "Внимание");
+                MessageBox.Show("Заполните все поля и импортируйте фото перед добавлением производителя", "Внимание");
             }
         }
     }

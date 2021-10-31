@@ -44,6 +44,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.allproducts.Clear();
             MainWindow.AllProductsFill();
             if (!String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text))
             {
@@ -89,11 +90,16 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
         private void SendBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.allproducts.Clear();
-            MainWindow.AllProductsFill();
-            if (!MainWindow.allproducts.Select(p => p.ManufacturerCode).Contains(ManufacturerCodeBox.Text))
+
+            if (!String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(ManufacturerBox.SelectedValue.ToString()) &&
+                !String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text) && !String.IsNullOrWhiteSpace(UsageTypeBox.SelectedValue.ToString())
+                && !String.IsNullOrWhiteSpace(FormFactorBox.SelectedValue.ToString()) &&
+                !String.IsNullOrWhiteSpace(InterfaceBox.ToString()) && !String.IsNullOrWhiteSpace(VolumeGBBox.ToString()) && !String.IsNullOrWhiteSpace(ReadSpeedBox.Text) &&
+                !String.IsNullOrWhiteSpace(WriteSpeedBox.Text) && !String.IsNullOrWhiteSpace(UsageHoursBox.Text) && !String.IsNullOrWhiteSpace(GuaranteeBox.Text))
             {
-                if (ManufacturerBox.SelectedValue != null)
+                MainWindow.allproducts.Clear();
+                MainWindow.AllProductsFill();
+                if (!MainWindow.allproducts.Select(p => p.ManufacturerCode).Contains(ManufacturerCodeBox.Text))
                 {
                     if (ManufacturerBox.SelectedValue.ToString() != "Добавить нового производителя...")
                     {
@@ -136,25 +142,24 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                         }
                         else
                         {
-                            MessageBox.Show("Заполните все поля перед добавлением товара");
+                            MessageBox.Show("Заполните все поля и загрузите фотографию товара перед добавлением.");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Заполните производителя");
+                        MessageBox.Show("Укажите производителя.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Заполните все поля перед добавлением товара");
+                    MessageBox.Show("Товар с таким кодом производителя уже существует.");
                 }
             }
             else
             {
-                MessageBox.Show("Данный код производителя уже существует. Возможно этот товар уже добавлен.", "Внимание");
+                MessageBox.Show("Заполните все поля перед добавлением товара.");
             }
         }
-
         private void ManufacturerBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(ManufacturerBox.SelectedValue.ToString() == "Добавить нового производителя...")
