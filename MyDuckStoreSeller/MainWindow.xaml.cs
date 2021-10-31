@@ -5,6 +5,7 @@ using MyDuckStoreSeller.Classes.Instances;
 using MyDuckStoreSeller.Classes.Products;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -27,25 +28,27 @@ namespace MyDuckStoreSeller
     public partial class MainWindow : Window
     {
         public static Seller seller;
-        List<Product> allproducts = new List<Product>();
-        List<Instance> allinstances = new List<Instance>();
-        Dictionary<Instance, Product> sellerproducts = new Dictionary<Instance, Product>();
+        public static ObservableCollection<Product> allproducts = new ObservableCollection<Product>();
+        public static ObservableCollection<Instance> allinstances = new ObservableCollection<Instance>();
+        public static Dictionary<Instance, Product> sellerproducts = new Dictionary<Instance, Product>();
 
-        SsdProducts AllSsds;
-        AircoolerProducts AllAircoolers;
-        CpuProducts AllCpus;
-        HddProducts AllHdds;
-        HeadphonesProducts AllHeadphones;
-        KeyboardProducts AllKeyboards;
-        MonitorProducts AllMonitors;
-        MotherboardProducts AllMotherboards;
-        MouseProducts AllMouses;
-        PsuProducts AllPsus;
-        RamProducts AllRams;
-        TowerProducts AllTowers;
-        UsbflashProducts AllUsbs;
-        VideocardProducts AllVideocards;
-        WatercoolerProducts AllWatercoolers;
+        public static SsdProducts AllSsds = new SsdProducts();
+        public static AircoolerProducts AllAircoolers = new AircoolerProducts();
+        public static CpuProducts AllCpus = new CpuProducts();
+        public static HddProducts AllHdds = new HddProducts();
+        public static HeadphonesProducts AllHeadphones = new HeadphonesProducts();
+        public static KeyboardProducts AllKeyboards = new KeyboardProducts();
+        public static MonitorProducts AllMonitors = new MonitorProducts();
+        public static MotherboardProducts AllMotherboards = new MotherboardProducts();
+        public static MouseProducts AllMouses = new MouseProducts();
+        public static PsuProducts AllPsus = new PsuProducts();
+        public static RamProducts AllRams = new RamProducts();
+        public static TowerProducts AllTowers = new TowerProducts();
+        public static UsbflashProducts AllUsbs = new UsbflashProducts();
+        public static VideocardProducts AllVideocards = new VideocardProducts();
+        public static WatercoolerProducts AllWatercoolers = new WatercoolerProducts();
+
+        public static ManufacturerList manufacturers = new ManufacturerList();
 
         public MainWindow(Seller s)
         {
@@ -74,12 +77,224 @@ namespace MyDuckStoreSeller
             //Заполнение товаров продавца
             AllProductsFill();
             AllInstancesFill();
+            SellerProductsFill();
+            ManufacturersFill();
 
+            ListViewProducts.ItemsSource = sellerproducts;
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //(tabControl1.SelectedItem as TabItem).Background = new SolidColorBrush(Color.FromRgb(112, 21, 31));
+
+            if(CloseTab.IsSelected == true)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        public static void AllProductsFill()
+        {
+            //Заполнение товаров продавца
+
+            AllSsds = JsonSerializer.Deserialize<SsdProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/ssd/read.php"));
+            AllAircoolers = JsonSerializer.Deserialize<AircoolerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/aircooler/read.php"));
+            AllCpus = JsonSerializer.Deserialize<CpuProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/cpu/read.php"));
+            AllHdds = JsonSerializer.Deserialize<HddProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/hdd/read.php"));
+            AllHeadphones = JsonSerializer.Deserialize<HeadphonesProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/headphones/read.php"));
+            AllKeyboards = JsonSerializer.Deserialize<KeyboardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/keyboard/read.php"));
+            AllMonitors = JsonSerializer.Deserialize<MonitorProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/monitor/read.php"));
+            AllMotherboards = JsonSerializer.Deserialize<MotherboardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/motherboard/read.php"));
+            AllMouses = JsonSerializer.Deserialize<MouseProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/mouse/read.php"));
+            AllPsus = JsonSerializer.Deserialize<PsuProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/psu/read.php"));
+            AllRams = JsonSerializer.Deserialize<RamProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/ram/read.php"));
+            AllTowers = JsonSerializer.Deserialize<TowerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/tower/read.php"));
+            AllUsbs = JsonSerializer.Deserialize<UsbflashProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/usbflash/read.php"));
+            AllVideocards = JsonSerializer.Deserialize<VideocardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/videocard/read.php"));
+            AllWatercoolers = JsonSerializer.Deserialize<WatercoolerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/watercooler/read.php"));
+
+            foreach (var x in AllSsds.ssd)
+                allproducts.Add(x);
+            foreach (var x in AllAircoolers.aircooler)
+                allproducts.Add(x);
+            foreach (var x in AllCpus.cpu)
+                allproducts.Add(x);
+            foreach (var x in AllHdds.hdd)
+                allproducts.Add(x);
+            foreach (var x in AllHeadphones.headphones)
+                allproducts.Add(x);
+            foreach (var x in AllKeyboards.keyboard)
+                allproducts.Add(x);
+            foreach (var x in AllMonitors.monitor)
+                allproducts.Add(x);
+            foreach (var x in AllMotherboards.motherboard)
+                allproducts.Add(x);
+            foreach (var x in AllMouses.mouse)
+                allproducts.Add(x);
+            foreach (var x in AllPsus.psu)
+                allproducts.Add(x);
+            foreach (var x in AllRams.ram)
+                allproducts.Add(x);
+            foreach (var x in AllTowers.tower)
+                allproducts.Add(x);
+            foreach (var x in AllUsbs.usbflash)
+                allproducts.Add(x);
+            foreach (var x in AllVideocards.videocard)
+                allproducts.Add(x);
+            foreach (var x in AllWatercoolers.watercooler)
+                allproducts.Add(x);
+        }
+        public static void AllInstancesFill()
+        {
+            try
+            {
+                var AllSsdInstances = JsonSerializer.Deserialize<SsdInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/ssdinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllSsdInstances.ssdinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllAircoolerInstances = JsonSerializer.Deserialize<AircoolerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/aircoolerinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllAircoolerInstances.aircoolerinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllHddInstances = JsonSerializer.Deserialize<HddInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/hddinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllHddInstances.Hddinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllHeadphonesInstances = JsonSerializer.Deserialize<HeadphonesInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/headphonesinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllHeadphonesInstances.Headphonesinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllKeyboardInstances = JsonSerializer.Deserialize<KeyboardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/keyboardinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllKeyboardInstances.Keyboardinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllMonitorInstances = JsonSerializer.Deserialize<MonitorInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/monitorinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllMonitorInstances.Monitorinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllMotherboardInstances = JsonSerializer.Deserialize<MotherboardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/motherboardinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllMotherboardInstances.Motherboardinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllMouseInstances = JsonSerializer.Deserialize<MouseInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/mouseinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllMouseInstances.Mouseinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllPsuInstances = JsonSerializer.Deserialize<PsuInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/psuinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllPsuInstances.Psuinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllRamInstances = JsonSerializer.Deserialize<RamInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/raminstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllRamInstances.Raminstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllTowerInstances = JsonSerializer.Deserialize<TowerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/towerinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllTowerInstances.Towerinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllUsbFlashInstances = JsonSerializer.Deserialize<UsbFlashInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/usbflashinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllUsbFlashInstances.UsbFlashinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllVideocardInstances = JsonSerializer.Deserialize<VideocardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/videocardinstance/read_one.php?SellerId=" + seller.SellerID)); 
+                foreach (var x in AllVideocardInstances.Videocardinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                var AllWatercoolerInstances = JsonSerializer.Deserialize<WatercoolerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/watercoolerinstance/read_one.php?SellerId=" + seller.SellerID));
+                foreach (var x in AllWatercoolerInstances.Watercoolerinstance)
+                    allinstances.Add(x);
+            }
+            catch
+            {
+
+            }
+        }
+        public static void SellerProductsFill()
+        {
             foreach (var x in allproducts)
             {
                 if (x is Ssd)
                 {
-                    foreach(var ins in allinstances)
+                    foreach (var ins in allinstances)
                     {
                         if (ins is SsdInstance && (ins as SsdInstance).SsdId == (x as Ssd).SsdID)
                         {
@@ -228,239 +443,41 @@ namespace MyDuckStoreSeller
                     }
                 }
             }
-
-
-
-            ListViewProducts.ItemsSource = sellerproducts;
-
-
         }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public static void ManufacturersFill()
         {
-            //(tabControl1.SelectedItem as TabItem).Background = new SolidColorBrush(Color.FromRgb(112, 21, 31));
-
-            if(CloseTab.IsSelected == true)
-            {
-                Application.Current.Shutdown();
-            }
+            manufacturers = JsonSerializer.Deserialize<ManufacturerList>(new WebClient().DownloadString("https://www.myduckstudios.fvds.ru/api/controllers/manufacturer/read.php"));
         }
 
-        private void AllProductsFill()
-        {
-            //Заполнение товаров продавца
 
-            AllSsds = JsonSerializer.Deserialize<SsdProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/ssd/read.php"));
-            AllAircoolers = JsonSerializer.Deserialize<AircoolerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/aircooler/read.php"));
-            AllCpus = JsonSerializer.Deserialize<CpuProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/cpu/read.php"));
-            AllHdds = JsonSerializer.Deserialize<HddProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/hdd/read.php"));
-            AllHeadphones = JsonSerializer.Deserialize<HeadphonesProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/headphones/read.php"));
-            AllKeyboards = JsonSerializer.Deserialize<KeyboardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/keyboard/read.php"));
-            AllMonitors = JsonSerializer.Deserialize<MonitorProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/monitor/read.php"));
-            AllMotherboards = JsonSerializer.Deserialize<MotherboardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/motherboard/read.php"));
-            AllMouses = JsonSerializer.Deserialize<MouseProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/mouse/read.php"));
-            AllPsus = JsonSerializer.Deserialize<PsuProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/psu/read.php"));
-            AllRams = JsonSerializer.Deserialize<RamProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/ram/read.php"));
-            AllTowers = JsonSerializer.Deserialize<TowerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/tower/read.php"));
-            AllUsbs = JsonSerializer.Deserialize<UsbflashProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/usbflash/read.php"));
-            AllVideocards = JsonSerializer.Deserialize<VideocardProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/videocard/read.php"));
-            AllWatercoolers = JsonSerializer.Deserialize<WatercoolerProducts>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/products/watercooler/read.php"));
-
-            foreach (var x in AllSsds.ssd)
-                allproducts.Add(x);
-            foreach (var x in AllAircoolers.aircooler)
-                allproducts.Add(x);
-            foreach (var x in AllCpus.cpu)
-                allproducts.Add(x);
-            foreach (var x in AllHdds.hdd)
-                allproducts.Add(x);
-            foreach (var x in AllHeadphones.headphones)
-                allproducts.Add(x);
-            foreach (var x in AllKeyboards.keyboard)
-                allproducts.Add(x);
-            foreach (var x in AllMonitors.monitor)
-                allproducts.Add(x);
-            foreach (var x in AllMotherboards.motherboard)
-                allproducts.Add(x);
-            foreach (var x in AllMouses.mouse)
-                allproducts.Add(x);
-            foreach (var x in AllPsus.psu)
-                allproducts.Add(x);
-            foreach (var x in AllRams.ram)
-                allproducts.Add(x);
-            foreach (var x in AllTowers.tower)
-                allproducts.Add(x);
-            foreach (var x in AllUsbs.usbflash)
-                allproducts.Add(x);
-            foreach (var x in AllVideocards.videocard)
-                allproducts.Add(x);
-            foreach (var x in AllWatercoolers.watercooler)
-                allproducts.Add(x);
-        }
-        private void AllInstancesFill()
-        {
-            try
-            {
-                var AllSsdInstances = JsonSerializer.Deserialize<SsdInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/ssdinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllSsdInstances.ssdinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllAircoolerInstances = JsonSerializer.Deserialize<AircoolerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/aircoolerinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllAircoolerInstances.aircoolerinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllHddInstances = JsonSerializer.Deserialize<HddInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/hddinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllHddInstances.Hddinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllHeadphonesInstances = JsonSerializer.Deserialize<HeadphonesInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/headphonesinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllHeadphonesInstances.Headphonesinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllKeyboardInstances = JsonSerializer.Deserialize<KeyboardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/keyboardinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllKeyboardInstances.Keyboardinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllMonitorInstances = JsonSerializer.Deserialize<MonitorInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/monitorinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllMonitorInstances.Monitorinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllMotherboardInstances = JsonSerializer.Deserialize<MotherboardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/motherboardinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllMotherboardInstances.Motherboardinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllMouseInstances = JsonSerializer.Deserialize<MouseInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/mouseinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllMouseInstances.Mouseinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllPsuInstances = JsonSerializer.Deserialize<PsuInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/psuinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllPsuInstances.Psuinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllRamInstances = JsonSerializer.Deserialize<RamInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/raminstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllRamInstances.Raminstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllTowerInstances = JsonSerializer.Deserialize<TowerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/towerinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllTowerInstances.Towerinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllUsbFlashInstances = JsonSerializer.Deserialize<UsbFlashInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/usbflashinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllUsbFlashInstances.UsbFlashinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllVideocardInstances = JsonSerializer.Deserialize<VideocardInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/videocardinstance/read_one.php?SellerId=" + seller.SellerID)); 
-                foreach (var x in AllVideocardInstances.Videocardinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-            try
-            {
-                var AllWatercoolerInstances = JsonSerializer.Deserialize<WatercoolerInstanceList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/instances/watercoolerinstance/read_one.php?SellerId=" + seller.SellerID));
-                foreach (var x in AllWatercoolerInstances.Watercoolerinstance)
-                    allinstances.Add(x);
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+private void ListViewProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var element = (KeyValuePair<Instance, Product>)(sender as ListView).SelectedValue;
             if (element.Value is Ssd)
             {
-                AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element, ref allproducts);
-                addeditForm.Show();
+                AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element);
+                addeditForm.ShowDialog();
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddEditWindow addeditForm = new AddEditWindow("CreateInstance", new KeyValuePair<Instance, Product>(), ref allproducts);
-            addeditForm.Show();
+            AddEditWindow addeditForm = new AddEditWindow("CreateInstance", new KeyValuePair<Instance, Product>());
+            var result = addeditForm.ShowDialog();
+            if ((bool)result || !(bool)result)
+            {
+                MainWindow.allinstances.Clear();
+                MainWindow.AllInstancesFill();
+                MainWindow.sellerproducts.Clear();
+                MainWindow.SellerProductsFill();
+                ListViewProducts.Items.Refresh();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AddEditWindow addeditForm = new AddEditWindow("CreateProduct", new KeyValuePair<Instance, Product>(), ref allproducts);
-            addeditForm.Show();
+            AddEditWindow addeditForm = new AddEditWindow("CreateProduct", new KeyValuePair<Instance, Product>());
+            addeditForm.ShowDialog();
         }
     }
 }

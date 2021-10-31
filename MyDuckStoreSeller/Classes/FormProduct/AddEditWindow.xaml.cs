@@ -23,45 +23,32 @@ namespace MyDuckStoreSeller.Classes.FormProduct
     public partial class AddEditWindow : Window
     {
         List<string> CategoriesList = new List<string>() { "Кулер", "ЦПУ", "Жесткий диск", "Наушники", "Клавиатура", "Монитор", "Материнская плата",
-            "Мышь", "Блок питания", "ОЗУ", "Накопитель SSD", "Корпус", "USB накопитель", "Видеокарта", "Водяное охлаждение"};
-        ManufacturerList allmanufacturers;
+            "Мышь", "Блок питания", "ОЗУ", "Накопитель SSD", "Корпус", "Накопитель USB", "Видеокарта", "Водяное охлаждение"};
 
-        KeyValuePair<Instance, Product> currentproduct;
-        List<Product> allproducts;
-        List<Product> allssd;
         string Method;
 
-        public AddEditWindow(string method, KeyValuePair<Instance, Product> product, ref List<Product> allproducts)
+        public AddEditWindow(string method, KeyValuePair<Instance, Product> product)
         {
             InitializeComponent();
 
             //Для глоб. переменных
-            currentproduct = product;
-            this.allproducts = allproducts;
             this.Method = method;
 
             //Категории
             CategoriesList.Sort();
             CategoriesComboBox.ItemsSource = CategoriesList;
 
-            //Производители
-            allmanufacturers = JsonSerializer.Deserialize<ManufacturerList>(new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/manufacturer/read.php"));
-
-            if (Method == "UpdateInstance" || Method == "CreateInstance")
+            if (Method == "UpdateInstance")
             {
                 if(Method == "UpdateInstance")
                     CategoriesComboBox.IsEnabled = false;
-                if (product.Value != null)
+                if (product.Value is Ssd)
                 {
-                    if (product.Value is Ssd)
-                    {
-                        CategoriesComboBox.SelectedItem = "Накопитель SSD";
-                        SsdInstanceUpdatePage ssdpage = new SsdInstanceUpdatePage(product);
-                        ProductFrame.Navigate(ssdpage);
-                    }
+                    CategoriesComboBox.SelectedItem = "Накопитель SSD";
+                    SsdInstanceUpdatePage ssdpage = new SsdInstanceUpdatePage(product);
+                    ProductFrame.Navigate(ssdpage);
                 }
             }
-
         }
 
         private void CategoriesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,7 +57,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             {
                 if (Method == "CreateInstance")
                 {
-                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage(ref allproducts);
+                    SsdInstanceCreatePage ssdpage = new SsdInstanceCreatePage();
                     ProductFrame.Navigate(ssdpage);
                 }
                 if (Method == "CreateProduct")

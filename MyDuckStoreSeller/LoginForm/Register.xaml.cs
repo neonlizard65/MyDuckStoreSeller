@@ -122,7 +122,7 @@ namespace MyDuckStoreSeller
                 {
                     var s = JsonSerializer.Serialize<Seller>(newseller);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                    client.UploadString(new Uri("http://myduckstudios.fvds.ru/api/controllers/seller/create.php"), "POST", s);
+                    client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/seller/create.php"), "POST", s);
                 }
                 catch(Exception e)
                 {

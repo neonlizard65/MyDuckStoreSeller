@@ -48,14 +48,16 @@
                     <ListView Name="ListViewProducts" Grid.Row="1" SelectionChanged="ListViewProducts_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                                    <Image Source="{Binding Value.ImagePath}" Width="200" Height="100"/>
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Value.Name}"></TextBlock>
-                                        <TextBlock Text="{Binding Key.Price, StringFormat={}{0} руб.}"></TextBlock>
-                                        <TextBlock Text="{Binding Path=Key.SerialNumber}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <Image Source="{Binding Value.ImagePath}" Width="200" Height="100"/>
+                                        <StackPanel Margin="15, 0, 0, 0" Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Value.Name}"></TextBlock>
+                                            <TextBlock Text="{Binding Key.Price, StringFormat={}{0} руб.}"></TextBlock>
+                                            <TextBlock Text="{Binding Path=Key.SerialNumber}"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <TextBlock Text="{Binding Path=Key.SoldText}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Path=Key.SoldText}" Margin="100, 0, 0, 0"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

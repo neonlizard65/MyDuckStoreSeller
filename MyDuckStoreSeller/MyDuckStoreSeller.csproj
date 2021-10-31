@@ -90,6 +90,9 @@
     <Compile Include="Classes\FormProduct\AddEditWindow.xaml.cs">
       <DependentUpon>AddEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormProduct\AddManufacturer.xaml.cs">
+      <DependentUpon>AddManufacturer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FormProduct\SsdCreatePage.xaml.cs">
       <DependentUpon>SsdCreatePage.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Page Include="Classes\FormProduct\AddEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Classes\FormProduct\AddManufacturer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
