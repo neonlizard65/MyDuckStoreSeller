@@ -18,6 +18,7 @@ namespace MyDuckStoreSeller.Classes
         public string Model { get; set; }
         public string Socket { get; set; }
         public string CoreType { get; set; }
+        public string CoreCount { get; set; }
         public string ThreadCount { get; set; }
         public string ClockRate { get; set; }
         public string CacheL1KB { get; set; }
@@ -32,7 +33,7 @@ namespace MyDuckStoreSeller.Classes
 
         public Cpu(string CpuID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
        string ImagePath, string ManufacturerCode, string Series, string Model, string Socket,
-       string CoreType, string ThreadCount, string ClockRate, string CacheL1KB, string CacheL2KB, string CacheL3KB, string IntegratedGraphicsCore, string Videoprocessor, string Nanometers, string MaxWorkTempCels, string Watt, string SupplyType, string GuaranteeMon)
+       string CoreType, string CoreCount, string ThreadCount, string ClockRate, string CacheL1KB, string CacheL2KB, string CacheL3KB, string IntegratedGraphicsCore, string Videoprocessor, string Nanometers, string MaxWorkTempCels, string Watt, string SupplyType, string GuaranteeMon)
        : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
             this.CpuID = CpuID;
@@ -40,6 +41,7 @@ namespace MyDuckStoreSeller.Classes
             this.Model = Model;
             this.Socket = Socket;
             this.CoreType = CoreType;
+            this.CoreCount = CoreCount;
             this.ThreadCount = ThreadCount;
             this.ClockRate = ClockRate;
             this.CacheL1KB = CacheL1KB;

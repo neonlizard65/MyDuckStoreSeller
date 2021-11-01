@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class MouseInstanceList
     {
-        public List<MouseInstance> Mouseinstance { get; set; }
+        public List<MouseInstance> mouseinstance { get; set; }
     }
 
     public class MouseInstance : Instance

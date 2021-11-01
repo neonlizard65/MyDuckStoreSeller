@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class MotherboardInstanceList
     {
-        public List<MotherboardInstance> Motherboardinstance { get; set; }
+        public List<MotherboardInstance> motherboardinstance { get; set; }
     }
 
     public class MotherboardInstance : Instance

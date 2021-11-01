@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class UsbFlashInstanceList
     {
-        public List<UsbFlashInstance> UsbFlashinstance { get; set; }
+        public List<UsbFlashInstance> usbflashinstance { get; set; }
     }
 
     public class UsbFlashInstance : Instance

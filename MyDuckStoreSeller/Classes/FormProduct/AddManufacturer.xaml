@@ -21,7 +21,7 @@
                 <Image Name="ManuImage" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
                 <Button Name="ImportButton" Click="ImportButton_Click" Height="30" Width="200" Content="Импортировать фото" Margin="0, 5, 0, 0"/>
             </StackPanel>
-            <Button Name="CreateButton" Click="CreateButton_Click" Height="30" Width="200" Content="Создать производителя"/>
+            <Button Name="CreateButton" Click="CreateButton_Click" Margin="0, 5, 0, 0"  Height="30" Width="200" Content="Создать производителя"/>
         </StackPanel>
     </Grid>
 </Window>

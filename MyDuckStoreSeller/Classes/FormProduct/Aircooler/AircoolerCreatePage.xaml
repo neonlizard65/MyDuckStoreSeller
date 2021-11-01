@@ -1,4 +1,4 @@
-﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.SsdCreatePage"
+﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.AircoolerCreatePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900"
-      Title="SsdCreatePage">
+      Title="AircoolerCreatePage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,38 +31,54 @@
                 <TextBox PreviewTextInput="ManufacturerCodeBox_PreviewTextInput" MaxLength="45" Name="ManufacturerCodeBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Назначение:"/>
-                <ComboBox Name="UsageTypeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Сокет:"/>
+                <TextBox MaxLength="100" Name="SocketBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Форм-фактор:"/>
-                <ComboBox  Name="FormFactorBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Тепловые трубки:"/>
+                <CheckBox  Name="ThermalCheckBox" Width="300" Margin="10, 5, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Интерфейс:"/>
-                <ComboBox  Name="InterfaceBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Материал радиатора:"/>
+                <TextBox MaxLength="45" Name="RadiatorBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Объем (ГБ):"/>
-                <TextBox MaxLength="10" PreviewTextInput="Text_PreviewTextInput"  Name="VolumeGBBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Материал основания:"/>
+                <TextBox  MaxLength="45"  Name="BaseBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Скорость чтения (МБ):"/>
-                <TextBox MaxLength="10" PreviewTextInput="Text_PreviewTextInput"  Name="ReadSpeedBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Количество вентиляторов:"/>
+                <TextBox MaxLength="3" PreviewTextInput="Text_PreviewTextInput"  Name="FanQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Скорость записи (МБ):"/>
-                <TextBox MaxLength="10" PreviewTextInput="Text_PreviewTextInput"  Name="WriteSpeedBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock Text="Размеры вентилятора (мм):"/>
+                <TextBox MaxLength="45" Name="FanSizeBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Время наработки на отказ:"/>
-                <TextBox MaxLength="10" PreviewTextInput="Text_PreviewTextInput" Name="UsageHoursBox" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock TextWrapping="Wrap" Text="Скорость вращения(об/мин):" MaxWidth="150"/>
+                <TextBox MaxLength="10" Name="FanSpeedBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock TextWrapping="Wrap" Text="Шум (дБ):" MaxWidth="150"/>
+                <TextBox MaxLength="10" Name="VolumeBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Воздушный поток:"/>
+                <TextBox MaxLength="10" Name="CFMBox"  Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Вес (кг):"/>
+                <TextBox MaxLength="10" PreviewTextInput="Decimal_PreviewTextInput" Name="WeightBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Высота (мм):"/>
+                <TextBox MaxLength="6" PreviewTextInput="Text_PreviewTextInput" Name="HeightBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                 <TextBlock Text="Гарантия (мес.):"/>
-                <TextBox MaxLength="6" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox"  Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
-            <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 30, 10, 0"/>
+            <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 20, 10, 0"/>
         </StackPanel>
     </Grid>
 </Page>

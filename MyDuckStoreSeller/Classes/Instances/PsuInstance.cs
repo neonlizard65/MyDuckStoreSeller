@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class PsuInstanceList
     {
-        public List<PsuInstance> Psuinstance { get; set; }
+        public List<PsuInstance> psuinstance { get; set; }
     }
 
     public class PsuInstance : Instance

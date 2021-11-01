@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class HddInstanceList
     {
-        public List<HddInstance> Hddinstance { get; set; }
+        public List<HddInstance> hddinstance { get; set; }
     }
 
     public class HddInstance : Instance

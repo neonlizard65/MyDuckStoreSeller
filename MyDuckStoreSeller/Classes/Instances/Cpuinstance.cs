@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class CpuInstanceList
     {
-        public List<CpuInstance> Cpuinstance { get; set; }
+        public List<CpuInstance> cpuinstance { get; set; }
     }
 
     public class CpuInstance : Instance

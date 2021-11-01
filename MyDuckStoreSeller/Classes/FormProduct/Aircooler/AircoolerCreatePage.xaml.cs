@@ -18,28 +18,26 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Text.Json;
+using MyDuckStoreSeller.Classes.Products;
 
 namespace MyDuckStoreSeller.Classes.FormProduct
 {
     /// <summary>
-    /// Interaction logic for SsdCreatePage.xaml
+    /// Interaction logic for AircoolerCreatePage.xaml
     /// </summary>
-    public partial class SsdCreatePage : Page
+    public partial class AircoolerCreatePage : Page
     {
-        Ssd newssd;
+        Aircooler newAircooler;
         public static string imageurl { get; set; }
         List<string> manufacturers = new List<string>();
         string imagebase64;
-        public SsdCreatePage()
+        public AircoolerCreatePage()
         {
             InitializeComponent();
             manufacturers = MainWindow.manufacturers.manufacturer.Select(m => m.ManufacturerName).ToList();
             manufacturers.Sort();
             manufacturers.Insert(0, "Добавить нового производителя...");
             ManufacturerBox.ItemsSource = manufacturers;
-            UsageTypeBox.ItemsSource = new List<string>() { "Внутренний", "Внешний" };
-            FormFactorBox.ItemsSource = new List<string>() { "2.5\u0022", "E1.S 5.9mm", "M.2"};
-            InterfaceBox.ItemsSource = new List<string>() { "IDE", "SAS", "SATA", "SATA-III", "mSATA", "PCI-E", "PCI-E", "PCI-E x2", "PCI-E 4.0 x4", "PCI-E x4", "PCI x8", "USB 3.0", "U.2" };
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
@@ -92,10 +90,11 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         {
 
             if (!String.IsNullOrWhiteSpace(NameBox.Text) && !String.IsNullOrWhiteSpace(ManufacturerBox.SelectedValue.ToString()) &&
-                !String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text) && !String.IsNullOrWhiteSpace(UsageTypeBox.SelectedValue.ToString())
-                && !String.IsNullOrWhiteSpace(FormFactorBox.SelectedValue.ToString()) &&
-                !String.IsNullOrWhiteSpace(InterfaceBox.ToString()) && !String.IsNullOrWhiteSpace(VolumeGBBox.ToString()) && !String.IsNullOrWhiteSpace(ReadSpeedBox.Text) &&
-                !String.IsNullOrWhiteSpace(WriteSpeedBox.Text) && !String.IsNullOrWhiteSpace(UsageHoursBox.Text) && !String.IsNullOrWhiteSpace(GuaranteeBox.Text))
+                !String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text) && !String.IsNullOrWhiteSpace(SocketBox.Text) &&
+                !String.IsNullOrWhiteSpace(RadiatorBox.Text) && !String.IsNullOrWhiteSpace(BaseBox.Text) && !String.IsNullOrWhiteSpace(FanQtyBox.Text) &&
+                !String.IsNullOrWhiteSpace(FanSpeedBox.Text) && !String.IsNullOrWhiteSpace(VolumeBox.Text) && 
+                !String.IsNullOrWhiteSpace(CFMBox.Text) && !String.IsNullOrWhiteSpace(WeightBox.Text) && !String.IsNullOrWhiteSpace(HeightBox.Text) 
+                && !String.IsNullOrWhiteSpace(GuaranteeBox.Text))
             {
                 MainWindow.allproducts.Clear();
                 MainWindow.AllProductsFill();
@@ -107,26 +106,31 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;
                         string ManufacturerCode = ManufacturerCodeBox.Text;
-                        string UsageType = UsageTypeBox.SelectedValue.ToString();
-                        string FormFactor = FormFactorBox.SelectedValue.ToString();
-                        string Interface = InterfaceBox.SelectedValue.ToString();
-                        string Volume = VolumeGBBox.Text;
-                        string ReadSpeed = ReadSpeedBox.Text;
-                        string WriteSpeed = WriteSpeedBox.Text;
-                        string UsageHours = UsageHoursBox.Text;
+                        string Socket = SocketBox.Text;
+                        string ThermalTubes = Convert.ToInt32(ThermalCheckBox.IsChecked).ToString();
+                        string RadiatorMaterial = RadiatorBox.Text;
+                        string BaseMaterial = BaseBox.Text;
+                        string FanQty = FanQtyBox.Text;
+                        string FanSize = FanSizeBox.Text;
+                        string FanSpeed = FanSpeedBox.Text;
+                        string Volume = VolumeBox.Text;
+                        string CFM = CFMBox.Text;
+                        string Weight = WeightBox.Text;
+                        string Height = HeightBox.Text;
                         string GuaranteeMon = GuaranteeBox.Text;
                         if (!String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(ManufacturerId) && !String.IsNullOrWhiteSpace(ImagePath) &&
-                            !String.IsNullOrWhiteSpace(ManufacturerCode) && !String.IsNullOrWhiteSpace(UsageType) && !String.IsNullOrWhiteSpace(FormFactor) &&
-                            !String.IsNullOrWhiteSpace(Interface) && !String.IsNullOrWhiteSpace(Volume) && !String.IsNullOrWhiteSpace(ReadSpeed) &&
-                            !String.IsNullOrWhiteSpace(WriteSpeed) && !String.IsNullOrWhiteSpace(UsageHours) && !String.IsNullOrWhiteSpace(GuaranteeMon))
+                            !String.IsNullOrWhiteSpace(ManufacturerCode) && !String.IsNullOrWhiteSpace(Socket) && !String.IsNullOrWhiteSpace(ThermalTubes) &&
+                            !String.IsNullOrWhiteSpace(RadiatorMaterial) && !String.IsNullOrWhiteSpace(BaseMaterial) && !String.IsNullOrWhiteSpace(FanQty) &&
+                            !String.IsNullOrWhiteSpace(FanSize) && !String.IsNullOrWhiteSpace(FanSpeed) && !String.IsNullOrWhiteSpace(CFM)
+                            && !String.IsNullOrWhiteSpace(Weight) && !String.IsNullOrWhiteSpace(Height) && !String.IsNullOrWhiteSpace(GuaranteeMon))
                         {
-                            newssd = new Ssd(null, null, ManufacturerId, null, null, null, Name, ImagePath, ManufacturerCode, UsageType, FormFactor, Interface, Volume, ReadSpeed, WriteSpeed, UsageHours, GuaranteeMon);
+                            newAircooler = new Aircooler(null, null, ManufacturerId, null, null, null, Name, ImagePath, ManufacturerCode, Socket, ThermalTubes, RadiatorMaterial, BaseMaterial, FanQty, FanSize, FanSpeed, Volume, CFM, Weight, Height, GuaranteeMon);
 
                             using (WebClient client = new WebClient())
                             {
-                                var s = JsonSerializer.Serialize<Ssd>(newssd);
+                                var s = JsonSerializer.Serialize<Aircooler>(newAircooler);
                                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                                client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/products/ssd/create.php"), "POST", s);
+                                client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/products/aircooler/create.php"), "POST", s);
 
                                 WebClient client2 = new WebClient();
 
@@ -174,7 +178,19 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        private void Decimal_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool approvedDecimalPoint = false;
 
+            if (e.Text == ".")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+                e.Handled = true;
+        }
         private void ManufacturerBox_DropDownOpened(object sender, EventArgs e)
         {
             MainWindow.manufacturers.manufacturer.Clear();

@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class RamInstanceList
     {
-        public List<RamInstance> Raminstance { get; set; }
+        public List<RamInstance> raminstance { get; set; }
     }
 
     public class RamInstance : Instance

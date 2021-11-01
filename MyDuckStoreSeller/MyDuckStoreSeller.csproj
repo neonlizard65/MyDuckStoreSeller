@@ -93,6 +93,24 @@
     <Compile Include="Classes\FormProduct\AddManufacturer.xaml.cs">
       <DependentUpon>AddManufacturer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormProduct\Cpu\CpuCreatePage.xaml.cs">
+      <DependentUpon>CpuCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Cpu\CpuInstanceCreatePage.xaml.cs">
+      <DependentUpon>CpuInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Cpu\CpuInstanceUpdatePage.xaml.cs">
+      <DependentUpon>CpuInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Aircooler\AircoolerCreatePage.xaml.cs">
+      <DependentUpon>AircoolerCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Aircooler\AircoolerInstanceCreatePage.xaml.cs">
+      <DependentUpon>AircoolerInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Aircooler\AircoolerInstanceUpdatePage.xaml.cs">
+      <DependentUpon>AircoolerInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FormProduct\Ssd\SsdCreatePage.xaml.cs">
       <DependentUpon>SsdCreatePage.xaml</DependentUpon>
     </Compile>
@@ -155,6 +173,30 @@
     <Page Include="Classes\FormProduct\AddManufacturer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Classes\FormProduct\Cpu\CpuCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Cpu\CpuInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Cpu\CpuInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Aircooler\AircoolerCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Aircooler\AircoolerInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Aircooler\AircoolerInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Classes\FormProduct\Ssd\SsdCreatePage.xaml">
       <SubType>Designer</SubType>

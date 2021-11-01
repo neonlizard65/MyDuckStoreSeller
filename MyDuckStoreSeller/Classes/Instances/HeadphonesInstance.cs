@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class HeadphonesInstanceList
     {
-        public List<HeadphonesInstance> Headphonesinstance { get; set; }
+        public List<HeadphonesInstance> headphonesinstance { get; set; }
     }
 
     public class HeadphonesInstance : Instance

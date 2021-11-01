@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class MonitorInstanceList
     {
-        public List<MonitorInstance> Monitorinstance { get; set; }
+        public List<MonitorInstance> monitorinstance { get; set; }
     }
 
     public class MonitorInstance : Instance

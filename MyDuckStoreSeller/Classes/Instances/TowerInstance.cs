@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class TowerInstanceList
     {
-        public List<TowerInstance> Towerinstance { get; set; }
+        public List<TowerInstance> towerinstance { get; set; }
     }
 
     public class TowerInstance : Instance

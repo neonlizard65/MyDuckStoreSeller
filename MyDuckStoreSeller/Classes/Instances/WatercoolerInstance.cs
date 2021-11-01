@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class WatercoolerInstanceList
     {
-        public List<WatercoolerInstance> Watercoolerinstance { get; set; }
+        public List<WatercoolerInstance> watercoolerinstance { get; set; }
     }
 
     public class WatercoolerInstance : Instance

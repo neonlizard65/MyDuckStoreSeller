@@ -18,28 +18,29 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Text.Json;
+using MyDuckStoreSeller.Classes.Products;
 
 namespace MyDuckStoreSeller.Classes.FormProduct
 {
     /// <summary>
-    /// Interaction logic for SsdCreatePage.xaml
+    /// Interaction logic for CpuCreatePage.xaml
     /// </summary>
-    public partial class SsdCreatePage : Page
+    public partial class CpuCreatePage : Page
     {
-        Ssd newssd;
+        Cpu newCpu;
         public static string imageurl { get; set; }
         List<string> manufacturers = new List<string>();
         string imagebase64;
-        public SsdCreatePage()
+        public CpuCreatePage()
         {
             InitializeComponent();
             manufacturers = MainWindow.manufacturers.manufacturer.Select(m => m.ManufacturerName).ToList();
             manufacturers.Sort();
             manufacturers.Insert(0, "Добавить нового производителя...");
+            List<string> Supply = new List<string>() { "OEM", "BOX" };
+            SupplyTypeBox.ItemsSource = Supply;
             ManufacturerBox.ItemsSource = manufacturers;
-            UsageTypeBox.ItemsSource = new List<string>() { "Внутренний", "Внешний" };
-            FormFactorBox.ItemsSource = new List<string>() { "2.5\u0022", "E1.S 5.9mm", "M.2"};
-            InterfaceBox.ItemsSource = new List<string>() { "IDE", "SAS", "SATA", "SATA-III", "mSATA", "PCI-E", "PCI-E", "PCI-E x2", "PCI-E 4.0 x4", "PCI-E x4", "PCI x8", "USB 3.0", "U.2" };
+            VideoprocessorBox.IsEnabled = false;
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
@@ -92,10 +93,12 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         {
 
             if (!String.IsNullOrWhiteSpace(NameBox.Text) && !String.IsNullOrWhiteSpace(ManufacturerBox.SelectedValue.ToString()) &&
-                !String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text) && !String.IsNullOrWhiteSpace(UsageTypeBox.SelectedValue.ToString())
-                && !String.IsNullOrWhiteSpace(FormFactorBox.SelectedValue.ToString()) &&
-                !String.IsNullOrWhiteSpace(InterfaceBox.ToString()) && !String.IsNullOrWhiteSpace(VolumeGBBox.ToString()) && !String.IsNullOrWhiteSpace(ReadSpeedBox.Text) &&
-                !String.IsNullOrWhiteSpace(WriteSpeedBox.Text) && !String.IsNullOrWhiteSpace(UsageHoursBox.Text) && !String.IsNullOrWhiteSpace(GuaranteeBox.Text))
+                !String.IsNullOrWhiteSpace(ManufacturerCodeBox.Text) && !String.IsNullOrWhiteSpace(SocketBox.Text) &&
+                !String.IsNullOrWhiteSpace(SeriesBox.Text) && !String.IsNullOrWhiteSpace(ModelBox.Text) && !String.IsNullOrWhiteSpace(CoreBox.Text) &&
+                !String.IsNullOrWhiteSpace(CoreQtyBox.Text) && !String.IsNullOrWhiteSpace(ThreadQtyBox.Text) && 
+                !String.IsNullOrWhiteSpace(ClockSpeedBox.Text) && !String.IsNullOrWhiteSpace(CacheL1Box.Text) && !String.IsNullOrWhiteSpace(CacheL2Box.Text) 
+                && !String.IsNullOrWhiteSpace(CacheL3Box.Text) && !String.IsNullOrWhiteSpace(NanometersBox.Text) && !String.IsNullOrWhiteSpace(MaxWorkTemp.Text)
+                && !String.IsNullOrWhiteSpace(WattBox.Text) && !String.IsNullOrWhiteSpace(SupplyTypeBox.SelectedValue.ToString()) && !String.IsNullOrWhiteSpace(GuaranteeBox.Text))
             {
                 MainWindow.allproducts.Clear();
                 MainWindow.AllProductsFill();
@@ -107,26 +110,40 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;
                         string ManufacturerCode = ManufacturerCodeBox.Text;
-                        string UsageType = UsageTypeBox.SelectedValue.ToString();
-                        string FormFactor = FormFactorBox.SelectedValue.ToString();
-                        string Interface = InterfaceBox.SelectedValue.ToString();
-                        string Volume = VolumeGBBox.Text;
-                        string ReadSpeed = ReadSpeedBox.Text;
-                        string WriteSpeed = WriteSpeedBox.Text;
-                        string UsageHours = UsageHoursBox.Text;
+                        string Series = SeriesBox.Text;
+                        string Model = ModelBox.Text;
+                        string Socket = SocketBox.Text;
+                        string Core = CoreBox.Text;
+                        string CoreQty = CoreQtyBox.Text;
+                        string ThreadQty = ThreadQtyBox.Text;
+                        string ClockSpeed = ClockSpeedBox.Text;
+                        string CacheL1 = CacheL1Box.Text;
+                        string CacheL2 = CacheL2Box.Text;
+                        string CacheL3 = CacheL3Box.Text;
+                        string IntegratedGraphicsCore = Convert.ToInt32(IntergratedCheckBox.IsChecked).ToString();
+                        string Videoprocessor = VideoprocessorBox.Text;
+                        string Nanometers = NanometersBox.Text;
+                        string MaxWorkTempCels = MaxWorkTemp.Text;
+                        string Watt = WattBox.Text;
+                        string SupplyType = SupplyTypeBox.SelectedValue.ToString();
                         string GuaranteeMon = GuaranteeBox.Text;
                         if (!String.IsNullOrWhiteSpace(Name) && !String.IsNullOrWhiteSpace(ManufacturerId) && !String.IsNullOrWhiteSpace(ImagePath) &&
-                            !String.IsNullOrWhiteSpace(ManufacturerCode) && !String.IsNullOrWhiteSpace(UsageType) && !String.IsNullOrWhiteSpace(FormFactor) &&
-                            !String.IsNullOrWhiteSpace(Interface) && !String.IsNullOrWhiteSpace(Volume) && !String.IsNullOrWhiteSpace(ReadSpeed) &&
-                            !String.IsNullOrWhiteSpace(WriteSpeed) && !String.IsNullOrWhiteSpace(UsageHours) && !String.IsNullOrWhiteSpace(GuaranteeMon))
+                            !String.IsNullOrWhiteSpace(ManufacturerCode) && !String.IsNullOrWhiteSpace(Socket) && !String.IsNullOrWhiteSpace(Series) &&
+                            !String.IsNullOrWhiteSpace(Model) && !String.IsNullOrWhiteSpace(Core) && !String.IsNullOrWhiteSpace(CoreQty) &&
+                            !String.IsNullOrWhiteSpace(ThreadQty) && !String.IsNullOrWhiteSpace(ClockSpeed) && !String.IsNullOrWhiteSpace(CacheL1)
+                            && !String.IsNullOrWhiteSpace(CacheL2) && !String.IsNullOrWhiteSpace(CacheL3) && !String.IsNullOrWhiteSpace(IntegratedGraphicsCore) 
+                            && !String.IsNullOrWhiteSpace(Nanometers) && !String.IsNullOrWhiteSpace(MaxWorkTempCels) && !String.IsNullOrWhiteSpace(Watt)
+                            && !String.IsNullOrWhiteSpace(SupplyType)
+                            && !String.IsNullOrWhiteSpace(GuaranteeMon))
                         {
-                            newssd = new Ssd(null, null, ManufacturerId, null, null, null, Name, ImagePath, ManufacturerCode, UsageType, FormFactor, Interface, Volume, ReadSpeed, WriteSpeed, UsageHours, GuaranteeMon);
+                            newCpu = new Cpu(null, null, ManufacturerId, null, null, null, Name, ImagePath, ManufacturerCode, Series, Model, Socket, Core, CoreQty, ThreadQty, ClockSpeed, CacheL1,
+                                CacheL2, CacheL3, IntegratedGraphicsCore, Videoprocessor, Nanometers, MaxWorkTempCels, Watt, SupplyType, GuaranteeMon);
 
                             using (WebClient client = new WebClient())
                             {
-                                var s = JsonSerializer.Serialize<Ssd>(newssd);
+                                var s = JsonSerializer.Serialize<Cpu>(newCpu);
                                 client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-                                client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/products/ssd/create.php"), "POST", s);
+                                client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/products/cpu/create.php"), "POST", s);
 
                                 WebClient client2 = new WebClient();
 
@@ -174,7 +191,19 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        private void Decimal_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool approvedDecimalPoint = false;
 
+            if (e.Text == ".")
+            {
+                if (!((TextBox)sender).Text.Contains("."))
+                    approvedDecimalPoint = true;
+            }
+
+            if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+                e.Handled = true;
+        }
         private void ManufacturerBox_DropDownOpened(object sender, EventArgs e)
         {
             MainWindow.manufacturers.manufacturer.Clear();
@@ -189,6 +218,16 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         {
             Regex regex = new Regex(@"[^a-zA-Z0-9\s]");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void IntergratedCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            VideoprocessorBox.IsEnabled = true;
+        }
+
+        private void IntergratedCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            VideoprocessorBox.IsEnabled = false;
         }
     }
 }

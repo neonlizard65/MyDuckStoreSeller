@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.Json;
 using System.Net;
+using MyDuckStoreSeller.Classes.Products;
 
 namespace MyDuckStoreSeller.Classes.FormProduct
 {
@@ -40,13 +41,24 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
             if (Method == "UpdateInstance")
             {
-                if(Method == "UpdateInstance")
-                    CategoriesComboBox.IsEnabled = false;
+                CategoriesComboBox.IsEnabled = false;
                 if (product.Value is Ssd)
                 {
                     CategoriesComboBox.SelectedItem = "Накопитель SSD";
                     SsdInstanceUpdatePage ssdpage = new SsdInstanceUpdatePage(product);
                     ProductFrame.Navigate(ssdpage);
+                }
+                if (product.Value is Aircooler)
+                {
+                    CategoriesComboBox.SelectedItem = "Кулер";
+                    AircoolerInstanceUpdatePage aircoolerpage = new AircoolerInstanceUpdatePage(product);
+                    ProductFrame.Navigate(aircoolerpage);
+                }
+                if (product.Value is Cpu)
+                {
+                    CategoriesComboBox.SelectedItem = "ЦПУ";
+                    CpuInstanceUpdatePage cpupage = new CpuInstanceUpdatePage(product);
+                    ProductFrame.Navigate(cpupage);
                 }
             }
         }
@@ -64,6 +76,32 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 {
                     SsdCreatePage ssdpage = new SsdCreatePage();
                     ProductFrame.Navigate(ssdpage);
+                }
+            }
+            if (CategoriesComboBox.SelectedValue.ToString() == "Кулер")
+            {
+                if (Method == "CreateInstance")
+                {
+                    AircoolerInstanceCreatePage aircoolerpage = new AircoolerInstanceCreatePage();
+                    ProductFrame.Navigate(aircoolerpage);
+                }
+                if (Method == "CreateProduct")
+                {
+                    AircoolerCreatePage aircoolerpage = new AircoolerCreatePage();
+                    ProductFrame.Navigate(aircoolerpage);
+                }
+            }
+            if (CategoriesComboBox.SelectedValue.ToString() == "ЦПУ")
+            {
+                if (Method == "CreateInstance")
+                {
+                    CpuInstanceCreatePage cpupage = new CpuInstanceCreatePage();
+                    ProductFrame.Navigate(cpupage);
+                }
+                if (Method == "CreateProduct")
+                {
+                    CpuCreatePage cpupage = new CpuCreatePage();
+                    ProductFrame.Navigate(cpupage);
                 }
             }
         }

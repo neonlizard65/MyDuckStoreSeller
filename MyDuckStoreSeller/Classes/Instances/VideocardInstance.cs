@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class VideocardInstanceList
     {
-        public List<VideocardInstance> Videocardinstance { get; set; }
+        public List<VideocardInstance> videocardinstance { get; set; }
     }
 
     public class VideocardInstance : Instance

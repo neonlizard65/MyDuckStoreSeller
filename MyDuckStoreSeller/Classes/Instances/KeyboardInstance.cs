@@ -8,7 +8,7 @@ namespace MyDuckStoreSeller.Classes.Instances
 {
     public class KeyboardInstanceList
     {
-        public List<KeyboardInstance> Keyboardinstance { get; set; }
+        public List<KeyboardInstance> keyboardinstance { get; set; }
     }
 
     public class KeyboardInstance : Instance
