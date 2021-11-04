@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
         mc:Ignorable="d"
-        Title="Товары" Height="900" Width="1200"
+        Title="Товары" Height="970" Width="1200"
+        MinHeight="800" MinWidth="1200"
         Icon="https://www.myduckstudios.fvds.ru/content/icon/web/favicon-32x32.png">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">

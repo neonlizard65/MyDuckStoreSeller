@@ -1,0 +1,94 @@
+﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.MotherboardCreatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="1000"
+      Title="MotherboardCreatePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="0">
+            <Image Name="ProductImage" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
+            <Button Name="ImportButton" Click="ImportButton_Click" Height="30" Width="200" Content="Импортировать фото" Margin="0, 5, 0, 0"/>
+        </StackPanel>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
+                    <TextBlock Text="Название (вид):"/>
+                    <TextBox MaxLength="150"  Name="NameBox" Width="300" TextWrapping="Wrap" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
+                    <TextBlock Text="Производитель:"/>
+                    <ComboBox DropDownOpened="ManufacturerBox_DropDownOpened" Name="ManufacturerBox" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="ManufacturerBox_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Код производителя:"/>
+                    <TextBox PreviewTextInput="ManufacturerCodeBox_PreviewTextInput" MaxLength="45" Name="ManufacturerCodeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Сокет:"/>
+                    <TextBox MaxLength="20" Name="SocketBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Чипсет:"/>
+                    <TextBox Name="ChipsetBox" MaxLength="20"  Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Количество слотов памяти:"/>
+                    <TextBox Name="RamSlotsBox" MaxLength="3" PreviewTextInput="Text_PreviewTextInput"  Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Контроллер SATA:"/>
+                    <TextBox Name="SataControllerBox" MaxLength="45" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Поддержка RAID:"/>
+                    <TextBox Name="RaidSupportBox" MaxLength="45" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Слоты расширения:"/>
+                    <TextBox MaxLength="100" TextWrapping="Wrap" Name="ExpansionSlotBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Интегрированное видео:" TextWrapping="Wrap" MaxWidth="150"  TextAlignment="Right"/>
+                    <TextBox Name="IntegratedVidBox" TextWrapping="Wrap" MaxLength="100" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Звук:"/>
+                    <TextBox Name="SoundBox" MaxLength="45" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Аудио-контроллер:"/>
+                    <TextBox Name="AudioControllerBox" MaxLength="45" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Сетевой интерфейс:"/>
+                    <TextBox Name="NetInterfaceBox" MaxLength="100" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Сетевой контроллер:"/>
+                    <TextBox Name="NetControllerBox" MaxLength="45" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Разъемы на задней панели:"/>
+                    <TextBox Name="InterfacesBox" TextWrapping="Wrap"  MaxLength="255" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Форм-фактор:"/>
+                    <ComboBox  Name="FormFactorBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Гарантия (мес.):"/>
+                    <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 20, 10, 0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -26,7 +26,7 @@ namespace MyDuckStoreSeller.Classes.Products
         public string MemoryMB { get; set; }
         public string MemoryType { get; set; }
         public string Ports { get; set; }
-        public string CountMonitorSupport { get; set; }
+        public string CountMonitorsSupport { get; set; }
         public string MaxResolution { get; set; }
         public string Pins { get; set; }
         public string Watt { get; set; }
@@ -34,7 +34,7 @@ namespace MyDuckStoreSeller.Classes.Products
         public Videocard(string VideocardID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
      string ImagePath, string ManufacturerCode, string Interface,
      string ProcessorManufacturer, string Series, string Nanometers, string ClockSpeed, string CountUniversalProcessor, string SLICrossfire, 
-     string DirectXSupport, string OpenGLSupport, string MemoryMB, string MemoryType, string Ports, string CountMonitorSupport, string MaxResolution, 
+     string DirectXSupport, string OpenGLSupport, string MemoryMB, string MemoryType, string Ports, string CountMonitorsSupport, string MaxResolution, 
      string Pins, string Watt, string Dimensions, string GuaranteeMon)
      : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
@@ -51,7 +51,7 @@ namespace MyDuckStoreSeller.Classes.Products
             this.MemoryMB = MemoryMB;
             this.MemoryType = MemoryType;
             this.Ports = Ports;
-            this.CountMonitorSupport = CountMonitorSupport;
+            this.CountMonitorsSupport = CountMonitorsSupport;
             this.MaxResolution = MaxResolution;
             this.Pins = Pins;
             this.Watt = Watt;

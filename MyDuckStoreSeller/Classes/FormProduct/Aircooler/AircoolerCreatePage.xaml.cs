@@ -66,8 +66,6 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
                             MessageBox.Show("Изображение загружено.");
 
-                            imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
-
                         }
                     }
                     catch (Exception ex)
@@ -102,6 +100,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 {
                     if (ManufacturerBox.SelectedValue.ToString() != "Добавить нового производителя...")
                     {
+                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
                         string Name = NameBox.Text;
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;

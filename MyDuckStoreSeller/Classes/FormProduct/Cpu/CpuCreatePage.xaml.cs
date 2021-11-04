@@ -68,9 +68,6 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                             imagebase64 = Convert.ToBase64String(imagebytes);
 
                             MessageBox.Show("Изображение загружено.");
-
-                            imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
-
                         }
                     }
                     catch (Exception ex)
@@ -106,6 +103,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 {
                     if (ManufacturerBox.SelectedValue.ToString() != "Добавить нового производителя...")
                     {
+                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
                         string Name = NameBox.Text;
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;
@@ -223,11 +221,13 @@ namespace MyDuckStoreSeller.Classes.FormProduct
         private void IntergratedCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             VideoprocessorBox.IsEnabled = true;
+
         }
 
         private void IntergratedCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             VideoprocessorBox.IsEnabled = false;
+            VideoprocessorBox.Text = "";
         }
     }
 }

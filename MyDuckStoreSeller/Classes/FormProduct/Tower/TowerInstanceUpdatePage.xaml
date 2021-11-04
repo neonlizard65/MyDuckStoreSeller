@@ -1,0 +1,119 @@
+﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.TowerInstanceUpdatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
+      mc:Ignorable="d"
+      d:DesignHeight="720" d:DesignWidth="1000"
+      Title="TowerInstanceCreatePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <TextBlock  HorizontalAlignment="Center" Text="Серийный номер:" Margin="0, 0, 0, 5"></TextBlock>
+                <TextBox Name="SerialBox" Width="300" Text="{Binding Key.SerialNumber}"></TextBox>
+            </StackPanel>
+            <TextBlock Text="{Binding Value.ArticulId, StringFormat={}ID:{0}}" Margin="5, 10, 0, 0" HorizontalAlignment="Center"></TextBlock>
+            <Image Name="ProductImage" Source="{Binding Value.ImagePath}" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
+        </StackPanel>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
+                    <TextBlock Text="Название (вид):"/>
+                    <TextBlock Text="{Binding Value.Name}" TextWrapping="Wrap"  Name="NameBox" Width="300"  Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
+                    <TextBlock Text="Производитель:"/>
+                    <TextBlock  Name="ManufacturerBox" Text="{Binding Value.ManufacturerName}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Код производителя:"/>
+                    <TextBlock  Name="ManufacturerCodeBox" Text="{Binding Value.ManufacturerCode}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Типоразмер:"/>
+                    <TextBlock  Name="SizeBox" Text="{Binding Value.Size}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Форм-фактор:"/>
+                    <TextBlock  Name="FormFactorBox" Text="{Binding Value.FormFactor}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Блок питания:"/>
+                    <CheckBox IsEnabled="False" Name="BPIncludedBox" Width="300" Margin="10, 5, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Расположение БП:"/>
+                    <TextBlock  Name="BPLocationBox" Text="{Binding Value.BPLocation}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Материал корпуса:"/>
+                    <TextBlock  Name="TowerMaterialBox" Text="{Binding Value.TowerMaterial}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Боковое окно:"/>
+                    <CheckBox IsEnabled="False" Name="SideWindowBox" Width="300" Margin="10, 5, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Материал окна:"/>
+                    <TextBlock  Name="WindowMaterialBox" Text="{Binding Value.WindowMaterial}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Внутренние отсеки 2.5&quot;:"/>
+                    <TextBlock  Name="Slot2p5Box" Text="{Binding Value.Slot2p5Qty}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Внутренние отсеки 3.5&quot;:"/>
+                    <TextBlock  Name="Slot3p5Box" Text="{Binding Value.Slot3p5Qty}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Кол-во слотов расширения:"/>
+                    <TextBlock  Name="ExpansionSlotsBox" Text="{Binding Value.ExpansionSlots}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Размещение HDD:"/>
+                    <TextBlock  Name="HDDPlacementBox" Text="{Binding Value.HDDPlacement}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Максимальная длина видеокарты (мм):" TextWrapping="Wrap" MaxWidth="200" TextAlignment="Right"/>
+                    <TextBlock  Name="MaxVideocardLengthBox" Text="{Binding Value.MaxVideocardLength}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Максимальная высота кулера (мм):" TextWrapping="Wrap" MaxWidth="200" TextAlignment="Right"/>
+                    <TextBlock  Name="MaxCoolerHeightBox" Text="{Binding Value.MaxCoolerHeight}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Интерфейсы на лицевой панели:" TextWrapping="Wrap" MaxWidth="200" TextAlignment="Right"/>
+                    <TextBlock  Name="InterfacesFrontBox" Text="{Binding Value.InterfacesFront}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Установленные вентиляторы:" TextWrapping="Wrap" MaxWidth="200" TextAlignment="Right"/>
+                    <TextBlock  Name="FansBox" TextWrapping="Wrap"  Text="{Binding Value.Fans}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Размеры:"/>
+                    <TextBlock  Name="DimensionsBox" Text="{Binding Value.Dimensions}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Вес (кг):"/>
+                    <TextBlock  Name="WeightBox" Text="{Binding Value.Weight}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Гарантия (мес.):"/>
+                    <TextBlock Text="{Binding Value.GuaranteeMon}"  Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Цена:"/>
+                    <TextBox Name="PriceBox" Text="{Binding Key.Price}" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <Button Name="SendBtn" Content="Обновить товар"  Grid.Column="1" Click="SendBtn_Click" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 10, 10, 0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

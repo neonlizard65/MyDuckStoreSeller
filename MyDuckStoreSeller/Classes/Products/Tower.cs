@@ -49,6 +49,7 @@ namespace MyDuckStoreSeller.Classes.Products
             this.Slot2p5Qty = Slot2p5Qty;
             this.Slot3p5Qty = Slot3p5Qty;
             this.HDDPlacement = HDDPlacement;
+            this.ExpansionSlots = ExpansionSlots;
             this.WindowMaterial = WindowMaterial;
             this.MaxVideocardLength = MaxVideocardLength;
             this.MaxCoolerHeight = MaxCoolerHeight;

@@ -27,11 +27,15 @@ namespace MyDuckStoreSeller
         public Register()
         {
             InitializeComponent();
+
+            using (WebClient client = new WebClient()) {
+                var allusers = client.DownloadString("https://www.myduckstudios.fvds.ru/api/controllers/user/read.php");
+                }
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.myduckstudios.fvds.ru/EULA.pdf");
+            System.Diagnostics.Process.Start("https://www.myduckstudios.fvds.ru/EULA.pdf");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,41 +51,55 @@ namespace MyDuckStoreSeller
                         {
                             if (PhoneBox.Text != "")
                             {
-                                if (INNBox.Text != "")
+                                if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checkselleremail.php?Email=" + EmailBox.Text)[0] == '0') 
                                 {
-                                    if (PassBox.Password != "")
+                                    if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checksellerphone.php?Phone=" + PhoneBox.Text)[0] == '0') 
                                     {
-                                        if (Pass2Box.Password != "")
+                                        if (INNBox.Text != "")
                                         {
-                                            if (PassBox.Password == Pass2Box.Password)
+                                            if (PassBox.Password != "")
                                             {
-                                                if (TermsBox.IsChecked == true)
+                                                if (Pass2Box.Password != "")
                                                 {
-                                                    RegisterSeller();
+                                                    if (PassBox.Password == Pass2Box.Password)
+                                                    {
+                                                        if (TermsBox.IsChecked == true)
+                                                        {
+                                                            RegisterSeller();
+                                                        }
+                                                        else
+                                                        {
+                                                            errors.AppendLine("Обязательно нужно принять пользовательское соглашение.");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        errors.AppendLine("Повторный пароль не совпадает с исходным.");
+                                                    }
                                                 }
                                                 else
                                                 {
-                                                    errors.AppendLine("Обязательно нужно принять пользовательское соглашение.");
+                                                    errors.AppendLine("Заполните повторно пароль.");
                                                 }
                                             }
                                             else
                                             {
-                                                errors.AppendLine("Повторный пароль не совпадает с исходным.");
+                                                errors.AppendLine("Введите пароль.");
                                             }
                                         }
                                         else
                                         {
-                                            errors.AppendLine("Заполните повторно пароль.");
+                                            errors.AppendLine("Заполните ИНН");
                                         }
                                     }
                                     else
                                     {
-                                        errors.AppendLine("Введите пароль.");
+                                        errors.AppendLine("Данный номер телефона уже зарегистрирован на данной платформе");
                                     }
                                 }
                                 else
                                 {
-                                    errors.AppendLine("Заполните ИНН");
+                                    errors.AppendLine("Данная электронная почта уже зарегистрирована на данной платформе");
                                 }
                             }
                             else
@@ -123,6 +141,8 @@ namespace MyDuckStoreSeller
                     var s = JsonSerializer.Serialize<Seller>(newseller);
                     client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
                     client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/seller/create.php"), "POST", s);
+                    LoginFrameManager.loginFrame.GoBack();
+                    MessageBox.Show("Пользователь зарегистрирован");
                 }
                 catch(Exception e)
                 {

@@ -93,6 +93,114 @@
     <Compile Include="Classes\FormProduct\AddManufacturer.xaml.cs">
       <DependentUpon>AddManufacturer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormProduct\Watercooler\WatercoolerCreatePage.xaml.cs">
+      <DependentUpon>WatercoolerCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Watercooler\WatercoolerInstanceCreatePage.xaml.cs">
+      <DependentUpon>WatercoolerInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Watercooler\WatercoolerInstanceUpdatePage.xaml.cs">
+      <DependentUpon>WatercoolerInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Videocard\VideocardCreatePage.xaml.cs">
+      <DependentUpon>VideocardCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Videocard\VideocardInstanceCreatePage.xaml.cs">
+      <DependentUpon>VideocardInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Videocard\VideocardInstanceUpdatePage.xaml.cs">
+      <DependentUpon>VideocardInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\UsbFlash\UsbFlashCreatePage.xaml.cs">
+      <DependentUpon>UsbFlashCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\UsbFlash\UsbFlashInstanceCreatePage.xaml.cs">
+      <DependentUpon>UsbFlashInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\UsbFlash\UsbFlashInstanceUpdatePage.xaml.cs">
+      <DependentUpon>UsbFlashInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Tower\TowerCreatePage.xaml.cs">
+      <DependentUpon>TowerCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Tower\TowerInstanceCreatePage.xaml.cs">
+      <DependentUpon>TowerInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Tower\TowerInstanceUpdatePage.xaml.cs">
+      <DependentUpon>TowerInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Ram\RamCreatePage.xaml.cs">
+      <DependentUpon>RamCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Ram\RamInstanceCreatePage.xaml.cs">
+      <DependentUpon>RamInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Ram\RamInstanceUpdatePage.xaml.cs">
+      <DependentUpon>RamInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Psu\PsuCreatePage.xaml.cs">
+      <DependentUpon>PsuCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Psu\PsuInstanceCreatePage.xaml.cs">
+      <DependentUpon>PsuInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Psu\PsuInstanceUpdatePage.xaml.cs">
+      <DependentUpon>PsuInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Mouse\MouseCreatePage.xaml.cs">
+      <DependentUpon>MouseCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Mouse\MouseInstanceCreatePage.xaml.cs">
+      <DependentUpon>MouseInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Mouse\MouseInstanceUpdatePage.xaml.cs">
+      <DependentUpon>MouseInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Motherboard\MotherboardCreatePage.xaml.cs">
+      <DependentUpon>MotherboardCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Motherboard\MotherboardInstanceCreatePage.xaml.cs">
+      <DependentUpon>MotherboardInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Motherboard\MotherboardInstanceUpdatePage.xaml.cs">
+      <DependentUpon>MotherboardInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Monitor\MonitorCreatePage.xaml.cs">
+      <DependentUpon>MonitorCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Monitor\MonitorInstanceCreatePage.xaml.cs">
+      <DependentUpon>MonitorInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Monitor\MonitorInstanceUpdatePage.xaml.cs">
+      <DependentUpon>MonitorInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Keyboard\KeyboardCreatePage.xaml.cs">
+      <DependentUpon>KeyboardCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Keyboard\KeyboardInstanceCreatePage.xaml.cs">
+      <DependentUpon>KeyboardInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Keyboard\KeyboardInstanceUpdatePage.xaml.cs">
+      <DependentUpon>KeyboardInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Headphones\HeadphonesCreatePage.xaml.cs">
+      <DependentUpon>HeadphonesCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Headphones\HeadphonesInstanceCreatePage.xaml.cs">
+      <DependentUpon>HeadphonesInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Headphones\HeadphonesInstanceUpdatePage.xaml.cs">
+      <DependentUpon>HeadphonesInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Hdd\HddCreatePage.xaml.cs">
+      <DependentUpon>HddCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Hdd\HddInstanceCreatePage.xaml.cs">
+      <DependentUpon>HddInstanceCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FormProduct\Hdd\HddInstanceUpdatePage.xaml.cs">
+      <DependentUpon>HddInstanceUpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FormProduct\Cpu\CpuCreatePage.xaml.cs">
       <DependentUpon>CpuCreatePage.xaml</DependentUpon>
     </Compile>
@@ -173,6 +281,150 @@
     <Page Include="Classes\FormProduct\AddManufacturer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Classes\FormProduct\Watercooler\WatercoolerCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Watercooler\WatercoolerInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Watercooler\WatercoolerInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Videocard\VideocardCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Videocard\VideocardInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Videocard\VideocardInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\UsbFlash\UsbFlashCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\UsbFlash\UsbFlashInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\UsbFlash\UsbFlashInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Tower\TowerCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Tower\TowerInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Tower\TowerInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Ram\RamCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Ram\RamInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Ram\RamInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Psu\PsuCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Psu\PsuInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Psu\PsuInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Mouse\MouseCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Mouse\MouseInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Mouse\MouseInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Motherboard\MotherboardCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Motherboard\MotherboardInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Motherboard\MotherboardInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Monitor\MonitorCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Monitor\MonitorInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Monitor\MonitorInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Keyboard\KeyboardCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Keyboard\KeyboardInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Keyboard\KeyboardInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Headphones\HeadphonesCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Headphones\HeadphonesInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Headphones\HeadphonesInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Hdd\HddCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Hdd\HddInstanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Classes\FormProduct\Hdd\HddInstanceUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Classes\FormProduct\Cpu\CpuCreatePage.xaml">
       <Generator>MSBuild:Compile</Generator>

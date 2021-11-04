@@ -1,0 +1,76 @@
+﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.WatercoolerCreatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="WatercoolerCreatePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="0">
+            <Image Name="ProductImage" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
+            <Button Name="ImportButton" Click="ImportButton_Click" Height="30" Width="200" Content="Импортировать фото" Margin="0, 5, 0, 0"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
+                <TextBlock Text="Название (вид):"/>
+                <TextBox MaxLength="150"  Name="NameBox" Width="300" TextWrapping="Wrap" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
+                <TextBlock Text="Производитель:"/>
+                <ComboBox DropDownOpened="ManufacturerBox_DropDownOpened" Name="ManufacturerBox" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="ManufacturerBox_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Код производителя:"/>
+                <TextBox PreviewTextInput="ManufacturerCodeBox_PreviewTextInput" MaxLength="45" Name="ManufacturerCodeBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Сокет:"/>
+                <TextBox MaxLength="100" Name="SocketBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Материал радиатора:"/>
+                <TextBox MaxLength="45" Name="RadiatorBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Количество вентиляторов:"/>
+                <TextBox MaxLength="3" PreviewTextInput="Text_PreviewTextInput"  Name="FanQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Размеры вентилятора:"/>
+                <TextBox MaxLength="45" Name="FanSizeBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock TextWrapping="Wrap" Text="Скорость вращения(об/мин):" MaxWidth="150" TextAlignment="Right"/>
+                <TextBox MaxLength="10" Name="FanSpeedBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock TextWrapping="Wrap" Text="Шум (дБ):" MaxWidth="150"/>
+                <TextBox MaxLength="10" Name="VolumeBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Воздушный поток:"/>
+                <TextBox MaxLength="10" Name="CFMBox"  Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Материал водоблока:"/>
+                <TextBox MaxLength="6" Name="WaterblockBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Вес (кг):"/>
+                <TextBox MaxLength="10" PreviewTextInput="Decimal_PreviewTextInput" Name="WeightBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Гарантия (мес.):"/>
+                <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 20, 10, 0"/>
+        </StackPanel>
+    </Grid>
+</Page>

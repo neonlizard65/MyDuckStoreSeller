@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="900"
+      d:DesignHeight="700" d:DesignWidth="1000"
       Title="CpuCreatePage">
 
     <Grid>
@@ -17,88 +17,90 @@
             <Image Name="ProductImage" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
             <Button Name="ImportButton" Click="ImportButton_Click" Height="30" Width="200" Content="Импортировать фото" Margin="0, 5, 0, 0"/>
         </StackPanel>
-        <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
-                <TextBlock Text="Название (вид):"/>
-                <TextBox MaxLength="150"  Name="NameBox" Width="300" TextWrapping="Wrap" Margin="10, 0, 0 ,0"/>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
+                    <TextBlock Text="Название (вид):"/>
+                    <TextBox MaxLength="150"  Name="NameBox" Width="300" TextWrapping="Wrap" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
+                    <TextBlock Text="Производитель:"/>
+                    <ComboBox DropDownOpened="ManufacturerBox_DropDownOpened" Name="ManufacturerBox" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="ManufacturerBox_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Код производителя:"/>
+                    <TextBox PreviewTextInput="ManufacturerCodeBox_PreviewTextInput" MaxLength="45" Name="ManufacturerCodeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Линейка:"/>
+                    <TextBox MaxLength="50" Name="SeriesBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Модель:"/>
+                    <TextBox  Name="ModelBox" Width="300" MaxLength="20" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Сокет:"/>
+                    <TextBox MaxLength="10" Name="SocketBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Ядро:"/>
+                    <TextBox  MaxLength="45" Name="CoreBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Кол-во ядер:"/>
+                    <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput"  Name="CoreQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Кол-во потоков:"/>
+                    <TextBox MaxLength="5" PreviewTextInput="Text_PreviewTextInput" Name="ThreadQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock TextWrapping="Wrap" Text="Тактовая частота (МГц):"/>
+                    <TextBox MaxLength="5" Name="ClockSpeedBox" PreviewTextInput="Text_PreviewTextInput" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Объем кэша L1 (KB):" MaxWidth="150"/>
+                    <TextBox MaxLength="10" Name="CacheL1Box" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Объем кэша L2 (KB):" MaxWidth="150"/>
+                    <TextBox MaxLength="10" Name="CacheL2Box" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Объем кэша L3 (KB):" MaxWidth="150"/>
+                    <TextBox MaxLength="10" Name="CacheL3Box" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Интегрированное графическое ядро:" TextWrapping="Wrap" MaxWidth="170"  TextAlignment="Right"/>
+                    <CheckBox Name="IntergratedCheckBox" Width="300" Margin="10, 15, 0 ,0" Checked="IntergratedCheckBox_Checked" Unchecked="IntergratedCheckBox_Unchecked"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Видеопроцессор:"/>
+                    <TextBox MaxLength="45" Name="VideoprocessorBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Технологический процесс (нм):" TextWrapping="Wrap" Width="170"  TextAlignment="Right"/>
+                    <TextBox MaxLength="2" PreviewTextInput="Text_PreviewTextInput" Name="NanometersBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Максимальная рабочая температура (C°):" TextWrapping="Wrap" MaxWidth="200"  TextAlignment="Right"/>
+                    <TextBox MaxLength="3" PreviewTextInput="Text_PreviewTextInput" Name="MaxWorkTemp" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Тепловыделение (Вт):"/>
+                    <TextBox MaxLength="6" PreviewTextInput="Text_PreviewTextInput" Name="WattBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Тип поставки:"/>
+                    <ComboBox IsEditable="False" Name="SupplyTypeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                    <TextBlock Text="Гарантия (мес.):"/>
+                    <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox" Width="300" Margin="10, 0, 0 ,0"/>
+                </StackPanel>
+                <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 20, 10, 0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
-                <TextBlock Text="Производитель:"/>
-                <ComboBox DropDownOpened="ManufacturerBox_DropDownOpened" Name="ManufacturerBox" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="ManufacturerBox_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Код производителя:"/>
-                <TextBox PreviewTextInput="ManufacturerCodeBox_PreviewTextInput" MaxLength="45" Name="ManufacturerCodeBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Линейка:"/>
-                <TextBox MaxLength="50" Name="SeriesBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Модель:"/>
-                <TextBox  Name="ModelBox" Width="300" MaxLength="20" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Сокет:"/>
-                <TextBox MaxLength="10" Name="SocketBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Ядро:"/>
-                <TextBox  MaxLength="45" Name="CoreBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Кол-во ядер:"/>
-                <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput"  Name="CoreQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Кол-во потоков:"/>
-                <TextBox MaxLength="5" PreviewTextInput="Text_PreviewTextInput" Name="ThreadQtyBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock TextWrapping="Wrap" Text="Тактовая частота (МГц):"/>
-                <TextBox MaxLength="5" Name="ClockSpeedBox" PreviewTextInput="Text_PreviewTextInput" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Объем кэша L1 (KB):" MaxWidth="150"/>
-                <TextBox MaxLength="10" Name="CacheL1Box" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Объем кэша L2 (KB):" MaxWidth="150"/>
-                <TextBox MaxLength="10" Name="CacheL2Box" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Объем кэша L3 (KB):" MaxWidth="150"/>
-                <TextBox MaxLength="10" Name="CacheL3Box" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Интегрированное графическое ядро:" TextWrapping="Wrap" MaxWidth="170"/>
-                <CheckBox Name="IntergratedCheckBox" Width="300" Margin="10, 15, 0 ,0" Checked="IntergratedCheckBox_Checked" Unchecked="IntergratedCheckBox_Unchecked"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Видеопроцессор:"/>
-                <TextBox MaxLength="45" PreviewTextInput="Decimal_PreviewTextInput" Name="VideoprocessorBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Технологический процесс (нм):" TextWrapping="Wrap" Width="170"/>
-                <TextBox MaxLength="2" PreviewTextInput="Text_PreviewTextInput" Name="NanometersBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Максимальная рабочая температура (C°):" TextWrapping="Wrap" MaxWidth="200"/>
-                <TextBox MaxLength="3" PreviewTextInput="Text_PreviewTextInput" Name="MaxWorkTemp" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Тепловыделение (Вт):"/>
-                <TextBox MaxLength="6" PreviewTextInput="Text_PreviewTextInput" Name="WattBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Тип поставки:"/>
-                <ComboBox IsEditable="False" Name="SupplyTypeBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                <TextBlock Text="Гарантия (мес.):"/>
-                <TextBox MaxLength="4" PreviewTextInput="Text_PreviewTextInput" Name="GuaranteeBox" Width="300" Margin="10, 0, 0 ,0"/>
-            </StackPanel>
-            <Button Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 20, 10, 0"/>
-        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

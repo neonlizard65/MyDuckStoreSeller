@@ -1,0 +1,68 @@
+﻿<Page x:Class="MyDuckStoreSeller.Classes.FormProduct.KeyboardInstanceCreatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyDuckStoreSeller.Classes.FormProduct"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="KeyboardInstanceCreatePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock  HorizontalAlignment="Center" Text="Серийный номер:" Margin="0, 0, 0, 5"></TextBlock>
+                <TextBox Name="SerialBox" Width="300" ></TextBox>
+            </StackPanel>
+            <TextBlock Text="{Binding ArticulId, StringFormat={}ID:{0}}" Margin="5, 10, 0, 0" HorizontalAlignment="Center"></TextBlock>
+            <Image Name="ProductImage" Source="{Binding ImagePath}" HorizontalAlignment="Center" Height="225" Margin="10,30,0,0" VerticalAlignment="Top" Width="344"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Orientation="Vertical" Margin="0,10,0,0" Grid.Column="1" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 10, 0">
+                <TextBlock Text="Название (вид):"/>
+                <ComboBox DropDownOpened="NameBox_DropDownOpened" IsEditable="False"  Name="NameBox" Width="300" Margin="10, 0, 0 ,0" SelectionChanged="NameBox_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0, 5, 10, 0">
+                <TextBlock Text="Производитель:"/>
+                <TextBlock  Name="ManufacturerBox" Text="{Binding ManufacturerName}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Код производителя:"/>
+                <TextBlock  Name="ManufacturerCodeBox" Text="{Binding ManufacturerCode}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Тип соединения:"/>
+                <TextBlock  Text="{Binding ConnectType}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Конструкция:"/>
+                <TextBlock Text="{Binding Construction}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Тип:"/>
+                <TextBlock  Text="{Binding Type}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Цифровой блок:"/>
+                <CheckBox IsEnabled="False" Name="NumpadCheckbox" Width="300" Margin="10, 5, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Вес (кг):" TextWrapping="Wrap" MaxWidth="175"/>
+                <TextBlock Text="{Binding Weight}" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Гарантия (мес.):"/>
+                <TextBlock  Name="GuaranteeBox" Text="{Binding GuaranteeMon}"  Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
+                <TextBlock Text="Цена:"/>
+                <TextBox Name="PriceBox" Width="300" Margin="10, 0, 0 ,0"/>
+            </StackPanel>
+            <Button IsDefault="True" Name="SendBtn" Content="Добавить товар"  Grid.Column="1" Click="SendBtn_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="200" Margin="0, 10, 10, 0"/>
+        </StackPanel>
+    </Grid>
+</Page>

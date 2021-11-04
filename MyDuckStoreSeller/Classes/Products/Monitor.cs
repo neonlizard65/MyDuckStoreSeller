@@ -23,7 +23,7 @@ namespace MyDuckStoreSeller.Classes.Products
         public string Resolution { get; set; }
         public string Brightness { get; set; }
         public string Contrast { get; set; }
-        public string MsDelay { get; set; }
+        public string DelayMs { get; set; }
         public string HorizontalFOV { get; set; }
         public string VerticalFOV { get; set; }
         public string MaxColorQty { get; set; }
@@ -42,7 +42,7 @@ namespace MyDuckStoreSeller.Classes.Products
 
         public Monitor(string MonitorID, string ArticulId, string ManufacturerId, string ManufacturerName, string ManufacturerSite, string ManufacturerImagePath, string Name,
 string ImagePath, string ManufacturerCode, string Diagonal, string Matrix, string LED,
-string WideFormat, string UltrawideFormat, string Resolution, string Brightness, string Contrast, string MsDelay, string HorizontalFOV, string VerticalFOV,
+string WideFormat, string UltrawideFormat, string Resolution, string Brightness, string Contrast, string DelayMs, string HorizontalFOV, string VerticalFOV,
 string MaxColorQty, string Hertz, string HeightRegulation, string WallMount, string Rotate90, string Interface, string USBHub, string PowerSupply, string VoltageWorking,
 string VoltageIdle, string Color, string Dimensions, string Weight, string GuaranteeMon)
 : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
@@ -56,7 +56,7 @@ string VoltageIdle, string Color, string Dimensions, string Weight, string Guara
             this.Resolution = Resolution;
             this.Brightness = Brightness;
             this.Contrast = Contrast;
-            this.MsDelay = MsDelay;
+            this.DelayMs = DelayMs;
             this.HorizontalFOV = HorizontalFOV;
             this.VerticalFOV = VerticalFOV;
             this.MaxColorQty = MaxColorQty;
