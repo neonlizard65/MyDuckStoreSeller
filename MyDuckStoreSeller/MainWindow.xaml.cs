@@ -54,10 +54,44 @@ namespace MyDuckStoreSeller
         {
             InitializeComponent();
             seller = s;
+
+            Hello();
+
+            //Заполнение товаров продавца
+            AllProductsFill();
+            AllInstancesFill();
+            SellerProductsFill();
+            ManufacturersFill();
+
+            ListViewProducts.ItemsSource = sellerproducts;
+
+
+            //Учетная запись пользователя
+            FIOBox.Text = seller.SellerName;
+            EmailBox.Text = seller.Email;
+            AdressBox.Text = seller.Adress;
+            PhoneBox.Text = seller.Phone;
+            INNBox.Text = seller.INN;
+            StorageBox.IsChecked = Convert.ToBoolean(Convert.ToInt32(seller.Storage));
+            
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //(tabControl1.SelectedItem as TabItem).Background = new SolidColorBrush(Color.FromRgb(112, 21, 31));
+
+            if(CloseTab.IsSelected == true)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void Hello()
+        {
             //Приветствие
             string[] sellerNameArray = seller.SellerName.Split(' ');
             string FirstName = sellerNameArray[1];
-            if (DateTime.Now.Hour >= 23 || DateTime.Now.Hour < 5) 
+            if (DateTime.Now.Hour >= 23 || DateTime.Now.Hour < 5)
             {
                 WelcomeText.Text = $"Доброй ночи, {FirstName}!";
             }
@@ -73,27 +107,7 @@ namespace MyDuckStoreSeller
             {
                 WelcomeText.Text = $"Добрый вечер, {FirstName}!";
             }
-
-            //Заполнение товаров продавца
-            AllProductsFill();
-            AllInstancesFill();
-            SellerProductsFill();
-            ManufacturersFill();
-
-            ListViewProducts.ItemsSource = sellerproducts;
-
         }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //(tabControl1.SelectedItem as TabItem).Background = new SolidColorBrush(Color.FromRgb(112, 21, 31));
-
-            if(CloseTab.IsSelected == true)
-            {
-                Application.Current.Shutdown();
-            }
-        }
-
         public static void AllProductsFill()
         {
             //Заполнение товаров продавца
@@ -488,6 +502,24 @@ namespace MyDuckStoreSeller
                 AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element);
                 addeditForm.ShowDialog();
                 ListViewProducts.SelectedIndex = -1;
+            }
+        }
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ListViewProducts.ItemsSource = from x in sellerproducts
+                                           where x.Value.Name.Contains(SearchBar.Text)
+                                           select x;
+        }
+
+        private void Update_User_Click(object sender, RoutedEventArgs e)
+        {
+            using(WebClient client = new WebClient())
+            {
+                Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
+                client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
+                MessageBox.Show("Учетная запись обновлена.");
+                seller = UpdatedSeller;
+                Hello();
             }
         }
     }

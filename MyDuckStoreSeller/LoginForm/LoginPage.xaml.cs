@@ -46,12 +46,7 @@ namespace MyDuckStoreSeller.LoginForm
                 IncorrectLogin.Visibility = Visibility.Visible;
             }    
         }
-           
-        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            LoginFrameManager.loginFrame.Navigate(new RecoverPass());
-        }
-
+          
         private bool Authenticate()
         { 
             using (WebClient client = new WebClient())

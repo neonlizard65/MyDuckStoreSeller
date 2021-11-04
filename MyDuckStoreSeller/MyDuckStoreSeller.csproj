@@ -268,9 +268,6 @@
     <Compile Include="LoginForm\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm\RecoverPass.xaml.cs">
-      <DependentUpon>RecoverPass.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoginForm\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
@@ -479,10 +476,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoginForm\RecoverPass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
