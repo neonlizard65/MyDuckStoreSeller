@@ -38,6 +38,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             {
                 PriceBox.IsEnabled = false;
                 SerialBox.IsEnabled = false;
+                SendBtn.IsEnabled = false;
             }
             BPIncludedBox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as Tower).BPIncluded));
             SideWindowBox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as Tower).SideWindow));

@@ -38,6 +38,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             {
                 PriceBox.IsEnabled = false;
                 SerialBox.IsEnabled = false;
+                SendBtn.IsEnabled = false;
             }
             OverFlowBox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as Psu).OverflowProtection));
             OverpressureBox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as Psu).OverpressureProtection));

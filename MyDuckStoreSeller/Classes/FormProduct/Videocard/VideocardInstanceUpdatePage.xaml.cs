@@ -38,6 +38,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             {
                 PriceBox.IsEnabled = false;
                 SerialBox.IsEnabled = false;
+                SendBtn.IsEnabled = false;
             }
 
             SliBox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as Videocard).SLICrossfire));
