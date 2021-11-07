@@ -39,6 +39,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 PriceBox.IsEnabled = false;
                 SerialBox.IsEnabled = false;
                 SendBtn.IsEnabled = false;
+                DeleteBtn.IsEnabled = false;
             }
 
             NumpadCheckbox.IsChecked = Convert.ToBoolean(Convert.ToInt32((product.Value as MyDuckStoreSeller.Classes.Products.Keyboard).Numpad));
@@ -63,5 +64,27 @@ namespace MyDuckStoreSeller.Classes.FormProduct
             }
         }
 
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Вы точно хотите удалить этот товар?", "Удаление", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                using (var client = new WebClient())
+                {
+                    try
+                    {
+                        client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                        client.UploadString(new Uri("https://myduckstudios.fvds.ru/api/controllers/instances/keyboardinstance/delete.php"), "DELETE", "{" + $"\"KeyboardInstanceID\" : \"{(product.Key as KeyboardInstance).KeyboardInstanceID}\"" + "}");
+                        MessageBox.Show("Товар успешно удален.");
+                        this.IsEnabled = false;
+
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.ToString(), "Ошибка удаления");
+                    }
+                }
+            }
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace MyDuckStoreSeller.Classes
         {
             this.SsdID = SsdID;
             this.UsageType = UsageType;
-            this.FormFactor = FormFactor;
+            this.FormFactor = FormFactor.Replace("&quot;", "\"");
             this.Interface = Interface;
             this.VolumeGB = VolumeGB;
             this.ReadSpeed = ReadSpeed;

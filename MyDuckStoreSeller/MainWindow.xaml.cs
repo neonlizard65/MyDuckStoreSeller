@@ -461,8 +461,8 @@ namespace MyDuckStoreSeller
                     }
                 }
             }
-            SoldQtyBox.Text = "Товаров продано за 7 дней: " + soldlastweek.Count;
-            TotalPriceBox.Text = "Выручка за 7 дней: " + soldlastweek.Sum(p => Convert.ToDecimal(p.Key.Price.Replace('.', ',')));
+            SoldQtyBox.Text = soldlastweek.Count.ToString();
+            TotalPriceBox.Text = soldlastweek.Sum(p => Convert.ToDecimal(p.Key.Price.Replace('.', ','))).ToString();
         }
 
 
@@ -492,8 +492,16 @@ namespace MyDuckStoreSeller
             {
                 var element = (KeyValuePair<Instance, Product>)(sender as ListView).SelectedValue;
                 AddEditWindow addeditForm = new AddEditWindow("UpdateInstance", element);
-                addeditForm.ShowDialog();
+                var result = addeditForm.ShowDialog();
                 ListViewProducts.SelectedIndex = -1;
+                if((bool)result || !(bool)result)
+                {
+                    MainWindow.allinstances.Clear();
+                    MainWindow.AllInstancesFill();
+                    MainWindow.sellerproducts.Clear();
+                    MainWindow.SellerProductsFill();
+                    ListViewProducts.Items.Refresh();
+                }
             }
         }
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

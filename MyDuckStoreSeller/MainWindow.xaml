@@ -67,9 +67,9 @@
                         <RowDefinition Height="400"/>
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Orientation="Vertical" Grid.Row="0">
+                    <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center">
                         <TextBlock Name="WelcomeText" FontSize="36" HorizontalAlignment="Center"/>
-                        <TextBlock FontSize="24" Text="Проданные товары за неделю:" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="24" Text="Проданные товары за неделю:" HorizontalAlignment="Center" Margin="0, 20, 0, 0"/>
                     </StackPanel>
                     <ListView Name="SoldProducts" Grid.Row="1" SelectionChanged="SoldProducts_SelectionChanged">
                         <ListView.ItemTemplate>
@@ -89,11 +89,17 @@
                     </ListView>
                     <StackPanel Grid.Row="2" Orientation="Horizontal">
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                            <TextBlock Name="SoldQtyBox"/>
-                            <TextBlock Name="TotalPriceBox"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="24" Text="Товаров продано за 7 дней: "/>
+                                <TextBlock FontSize="24" Name="SoldQtyBox"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="24" Text="Выручка за 7 дней: "/>
+                                <TextBlock FontSize="24" Name="TotalPriceBox"/>
+                            </StackPanel>
                         </StackPanel>
-                        <Button Name="Refresh" Content="Обновить" VerticalAlignment="Top" Margin="827, 3, 10, 0" Height="34" Width="200" Click="Refresh_Click"/>
                     </StackPanel>
+                    <Button Name="Refresh" Content="Обновить" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 5, 5, 0" Height="34" Width="200" Click="Refresh_Click"/>
                 </Grid>
             </TabItem>
             <TabItem>

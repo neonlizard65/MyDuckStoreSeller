@@ -29,7 +29,7 @@ namespace MyDuckStoreSeller.Classes.Products
         {
             this.HddID = HddID;
             this.UsageType = UsageType;
-            this.FormFactor = FormFactor;
+            this.FormFactor = FormFactor.Replace("&quot;", "\"");
             this.Interface = Interface;
             this.VolumeGB = VolumeGB;
             this.BufferMB = BufferMB;
