@@ -515,11 +515,74 @@ namespace MyDuckStoreSeller
         {
             using(WebClient client = new WebClient())
             {
-                Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
-                client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
-                MessageBox.Show("Учетная запись обновлена.");
-                seller = UpdatedSeller;
-                Hello();
+                if(seller.Email == EmailBox.Text)
+                {
+                    if (seller.Phone == PhoneBox.Text)
+                    {
+                        Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
+                        client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
+                        MessageBox.Show("Учетная запись обновлена.");
+                        seller = UpdatedSeller;
+                        Hello();
+                    }
+                    else
+                    {
+                        if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checksellerphone.php?Phone=" + PhoneBox.Text)[0] == '0')
+                        {
+                            Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
+                            client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
+                            MessageBox.Show("Учетная запись обновлена.");
+                            seller = UpdatedSeller;
+                            Hello();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Данный номер телефона уже зарегистрирован на данной платформе");
+                        }
+                    }
+                }
+                else
+                {
+                    if (seller.Phone == PhoneBox.Text)
+                    {
+                        if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checkselleremail.php?Email=" + EmailBox.Text)[0] == '0')
+                        {
+                            Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
+                            client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
+                            MessageBox.Show("Учетная запись обновлена.");
+                            seller = UpdatedSeller;
+                            Hello();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Данная электронная почта уже зарегистрирована на данной платформе");
+                        }
+                    }
+                    else
+                    {
+                        if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checkselleremail.php?Email=" + EmailBox.Text)[0] == '0')
+                        {
+                            if (new WebClient().DownloadString("https://myduckstudios.fvds.ru/api/controllers/checksellerphone.php?Phone=" + PhoneBox.Text)[0] == '0')
+                            {
+                                Seller UpdatedSeller = new Seller(seller.SellerID, FIOBox.Text, EmailBox.Text, PhoneBox.Text, AdressBox.Text, Convert.ToString(Convert.ToInt32(StorageBox.IsChecked)), seller.Password, INNBox.Text);
+                                client.UploadString("https://www.myduckstudios.fvds.ru/api/controllers/seller/update.php", "POST", JsonSerializer.Serialize<Seller>(UpdatedSeller));
+                                MessageBox.Show("Учетная запись обновлена.");
+                                seller = UpdatedSeller;
+                                Hello();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Данный номер телефона уже зарегистрирован на данной платформе");
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Данная электронная почта уже зарегистрирована на данной платформе");
+                        }
+                    }
+                }
+
             }
         }
 
