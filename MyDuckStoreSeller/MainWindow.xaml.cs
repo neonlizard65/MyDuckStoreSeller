@@ -611,5 +611,18 @@ namespace MyDuckStoreSeller
                 SoldProducts.SelectedIndex = -1;
             }
         }
+
+        private void HideBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var unsoldproducts = from x in sellerproducts
+                                 where x.Key.Sold == "0"
+                                 select x;
+            ListViewProducts.ItemsSource = unsoldproducts.ToList();
+        }
+
+        private void HideBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ListViewProducts.ItemsSource = sellerproducts;
+        }
     }
 }
