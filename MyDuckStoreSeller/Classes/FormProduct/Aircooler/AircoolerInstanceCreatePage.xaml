@@ -10,8 +10,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="92*"/>
-            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
         <StackPanel VerticalAlignment="Center" Grid.Column="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
@@ -37,7 +37,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Сокет:"/>
-                    <TextBlock Text="{Binding Socket}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding Socket}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Тепловые трубки:"/>
@@ -60,7 +60,7 @@
                     <TextBlock Text="{Binding Dimensions}" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
-                    <TextBlock Text="Скорость вращения (об/мин):" TextWrapping="Wrap" MaxWidth="150" TextAlignment="Right"/>
+                    <TextBlock Text="Скорость вращения (об/мин):" TextWrapping="Wrap" MaxWidth="153" TextAlignment="Right"/>
                     <TextBlock Text="{Binding Speed}" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">

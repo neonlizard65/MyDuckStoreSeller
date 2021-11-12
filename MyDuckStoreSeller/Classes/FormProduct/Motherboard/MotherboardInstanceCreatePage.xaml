@@ -57,11 +57,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Слоты расширения:"/>
-                    <TextBlock Text="{Binding ExpansionSlots}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding ExpansionSlots}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Интегрированное видео:" TextWrapping="Wrap" MaxWidth="150"  TextAlignment="Right"/>
-                    <TextBlock Text="{Binding IntegratedVideo}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding IntegratedVideo}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Звук:"/>
@@ -73,15 +73,15 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Сетевой интерфейс:"/>
-                    <TextBlock Text="{Binding NetInterface}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding NetInterface}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Сетевой контроллер:"/>
-                    <TextBlock  Text="{Binding NetController}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock  Text="{Binding NetController}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Разъемы на задней панели:"/>
-                    <TextBlock  Text="{Binding Interfaces}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock  Text="{Binding Interfaces}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Форм-фактор:"/>

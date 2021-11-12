@@ -36,7 +36,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                 <TextBlock Text="Тип соединения:"/>
-                <TextBlock  Text="{Binding ConnectType}" Width="300" Margin="10, 0, 0 ,0"/>
+                <TextBlock  Text="{Binding ConnectType}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                 <TextBlock Text="Конструкция:"/>

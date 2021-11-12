@@ -57,11 +57,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Слоты расширения:"/>
-                    <TextBlock Text="{Binding Value.ExpansionSlots}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding Value.ExpansionSlots}" TextWrapping="Wrap"  Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Интегрированное видео:" TextWrapping="Wrap" MaxWidth="150"  TextAlignment="Right"/>
-                    <TextBlock Text="{Binding Value.IntegratedVideo}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock Text="{Binding Value.IntegratedVideo}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Звук:"/>
@@ -77,11 +77,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Сетевой контроллер:"/>
-                    <TextBlock  Text="{Binding Value.NetController}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock  Text="{Binding Value.NetController}" TextWrapping="Wrap"  Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Разъемы на задней панели:"/>
-                    <TextBlock  Text="{Binding Value.Interfaces}" Width="300" Margin="10, 0, 0 ,0"/>
+                    <TextBlock  Text="{Binding Value.Interfaces}" TextWrapping="Wrap" Width="300" Margin="10, 0, 0 ,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 10, 0">
                     <TextBlock Text="Форм-фактор:"/>
