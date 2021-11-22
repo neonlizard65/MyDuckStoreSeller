@@ -82,7 +82,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                             WebClient client2 = new WebClient();
                             NameValueCollection query = new NameValueCollection();
                             query.Add("ManufacturerImage", imagebase64);
-                            query.Add("ManufacturerName", NameBox.Text);
+                            query.Add("ManufacturerName", NameBox.Text.Replace(" ", "_"));
                             var responce = client2.UploadValues("https://myduckstudios.fvds.ru/api/controllers/manuimage.php", "POST", query);
 
                             MessageBox.Show("Производитель добавлен!");

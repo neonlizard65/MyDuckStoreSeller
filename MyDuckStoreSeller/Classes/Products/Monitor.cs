@@ -47,7 +47,7 @@ string MaxColorQty, string Hertz, string HeightRegulation, string WallMount, str
 string VoltageIdle, string Color, string Dimensions, string Weight, string GuaranteeMon)
 : base(ArticulId, ManufacturerId, ManufacturerName, ManufacturerSite, ManufacturerImagePath, Name, ImagePath, ManufacturerCode, GuaranteeMon)
         {
-            this.MonitorID = MonitorID.Replace("&quot;", "\"");
+            this.MonitorID = MonitorID;
             this.Diagonal = Diagonal.Replace("&quot;", "\"");
             this.Matrix = Matrix;
             this.LED = LED;

@@ -506,9 +506,14 @@ namespace MyDuckStoreSeller
         }
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ListViewProducts.ItemsSource = from x in sellerproducts
-                                           where x.Value.Name.Contains(SearchBar.Text)
-                                           select x;
+            if ((bool)HideBox.IsChecked)
+            {
+                HideBox_Checked(null, null);
+            }
+            else
+            {
+                HideBox_Unchecked(null, null);
+            }
         }
 
         private void Update_User_Click(object sender, RoutedEventArgs e)
@@ -614,7 +619,10 @@ namespace MyDuckStoreSeller
 
         private void HideBox_Checked(object sender, RoutedEventArgs e)
         {
-            var unsoldproducts = from x in sellerproducts
+            var sb = from x in sellerproducts
+                     where x.Value.Name.ToLower().Contains(SearchBar.Text.ToLower())
+                     select x;
+            var unsoldproducts = from x in sb
                                  where x.Key.Sold == "0"
                                  select x;
             ListViewProducts.ItemsSource = unsoldproducts.ToList();
@@ -622,7 +630,9 @@ namespace MyDuckStoreSeller
 
         private void HideBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            ListViewProducts.ItemsSource = sellerproducts;
+            ListViewProducts.ItemsSource = from x in sellerproducts
+                                            where x.Value.Name.ToLower().Contains(SearchBar.Text.ToLower())
+                                            select x;
         }
     }
 }

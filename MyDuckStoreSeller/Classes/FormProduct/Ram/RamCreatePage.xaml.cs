@@ -103,7 +103,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 {
                     if (ManufacturerBox.SelectedValue.ToString() != "Добавить нового производителя...")
                     {
-                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
+                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text.Replace(" ", "_") + "_1.png";
                         string Name = NameBox.Text;
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;
@@ -134,7 +134,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
                                 NameValueCollection query = new NameValueCollection();
                                 query.Add("Image", imagebase64);
-                                query.Add("ManufacturerCode", ManufacturerCodeBox.Text);
+                                query.Add("ManufacturerCode", ManufacturerCodeBox.Text.Replace(" ", "_"));
 
                                 var responce = client2.UploadValues("https://myduckstudios.fvds.ru/api/controllers/image.php", "POST", query);
                                 MainWindow.allproducts.Clear();

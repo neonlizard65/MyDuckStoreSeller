@@ -25,7 +25,7 @@ namespace MyDuckStoreSeller.Classes
             this.ManufacturerName = ManufacturerName;
             this.ManufacturerSite = ManufacturerSite;
             this.ManufacturerImagePath = ManufacturerImagePath;
-            this.Name = Name;
+            this.Name = Name.Replace("&quot;", "\"");
             this.ImagePath = ImagePath;
             this.ManufacturerCode = ManufacturerCode;
             this.GuaranteeMon = GuaranteeMon;

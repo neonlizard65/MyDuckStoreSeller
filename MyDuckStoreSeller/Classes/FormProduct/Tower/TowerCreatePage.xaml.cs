@@ -106,7 +106,7 @@ namespace MyDuckStoreSeller.Classes.FormProduct
                 {
                     if (ManufacturerBox.SelectedValue.ToString() != "Добавить нового производителя...")
                     {
-                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text + "_1.png";
+                        imageurl = "https://myduckstudios.fvds.ru/photos/" + ManufacturerCodeBox.Text.Replace(" ", "_") + "_1.png";
                         string Name = NameBox.Text;
                         string ManufacturerId = MainWindow.manufacturers.manufacturer.First(m => m.ManufacturerName == ManufacturerBox.SelectedValue.ToString()).ManufacturerID;
                         string ImagePath = imageurl;
@@ -216,8 +216,13 @@ namespace MyDuckStoreSeller.Classes.FormProduct
 
         private void ManufacturerCodeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex(@"[^a-zA-Z0-9\s]");
-            e.Handled = regex.IsMatch(e.Text);
+            if (!e.Text.Contains(" "))
+            {
+                Regex regex = new Regex(@"[^a-zA-Z0-9-_]");
+                e.Handled = regex.IsMatch(e.Text);
+            }
+            else
+                e.Handled = true;
         }
 
         private void SideWindowBox_Unchecked(object sender, RoutedEventArgs e)
